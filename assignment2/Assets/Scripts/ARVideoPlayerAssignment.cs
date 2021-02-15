@@ -10,7 +10,6 @@ using UnityEngine.XR.ARSubsystems;
 public class ARVideoPlayerAssignment : MonoBehaviour
 {
     ARTrackedImageManager manager;
-    VideoPlayer videoPlayer;
     public VideoClip video1;
     public VideoClip video2;
     public VideoClip video3;
@@ -37,8 +36,6 @@ public class ARVideoPlayerAssignment : MonoBehaviour
             Debug.Log("Addeed new image: " + trackedImage.referenceImage.name);
         }
 
-        string lastTracked = null;
-
         foreach (var trackedImage in eventArgs.updated)
         {
             if (trackedImage.trackingState == TrackingState.Tracking)
@@ -47,37 +44,34 @@ public class ARVideoPlayerAssignment : MonoBehaviour
                 Debug.Log("Tracking new image: " + trackedImage.referenceImage.name);
 
                 trackedImage.destroyOnRemoval = true;
+                VideoPlayer videoPlayer = manager.trackedImagePrefab.GetComponentInChildren<VideoPlayer>();
                 string videoName = trackedImage.referenceImage.name;
+                videoPlayer.Stop();
 
-                if (manager.trackedImagePrefab.activeSelf && (lastTracked != videoName || lastTracked == null))
+                switch (videoName)
                 {
-                    videoPlayer = manager.trackedImagePrefab.GetComponentInChildren<VideoPlayer>();
-                    lastTracked = videoName;
-
-                    switch (videoName)
-                    {
-                        case "Synergy":
-                            videoPlayer.clip = video1;
-                            Debug.Log("should play synergy");
-                            videoPlayer.Play();
-                            break;
-                        case "EML":
-                            videoPlayer.clip = video2;
-                            Debug.Log("should play EML");
-                            videoPlayer.Play();
-                            break;
-                        case "GENUS":
-                            videoPlayer.clip = video3;
-                            Debug.Log("should play GENUS");
-                            videoPlayer.Play();
-                            break;
-                    }
+                    case "Synergy":
+                        videoPlayer.clip = video1;
+                        Debug.Log("should play synergy");
+                        videoPlayer.Play();
+                        break;
+                    case "EML":
+                        videoPlayer.clip = video2;
+                        Debug.Log("should play EML");
+                        videoPlayer.Play();
+                        break;
+                    case "GENUS":
+                        videoPlayer.clip = video3;
+                        Debug.Log("should play GENUS");
+                        videoPlayer.Play();
+                        break;
                 }
+                break;
             }
-            else if (trackedImage.trackingState == TrackingState.Limited || trackedImage.trackingState == TrackingState.None) {
+            else
+            {
                 trackedImage.gameObject.SetActive(false);
             }
-            
         }
     }
 }
