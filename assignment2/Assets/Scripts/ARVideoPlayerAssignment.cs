@@ -20,7 +20,6 @@ public class ARVideoPlayerAssignment : MonoBehaviour
         manager = GetComponent<ARTrackedImageManager>();
     }
 
-
     private void OnEnable()
     {
         manager.trackedImagesChanged += OnTrackedImagesChanged;
@@ -44,6 +43,7 @@ public class ARVideoPlayerAssignment : MonoBehaviour
         {
             if (trackedImage.trackingState == TrackingState.Tracking)
             {
+                trackedImage.gameObject.SetActive(true);
                 Debug.Log("Tracking new image: " + trackedImage.referenceImage.name);
 
                 trackedImage.destroyOnRemoval = true;
@@ -75,15 +75,9 @@ public class ARVideoPlayerAssignment : MonoBehaviour
                 }
             }
             else if (trackedImage.trackingState == TrackingState.Limited || trackedImage.trackingState == TrackingState.None) {
-                manager.trackedImagePrefab.SetActive(false);
+                trackedImage.gameObject.SetActive(false);
             }
             
-         }
-
-        foreach (var trackedImage in eventArgs.removed)
-        {
-            Debug.Log("Removed new image: " + trackedImage.referenceImage.name);
         }
     }
-
 }
