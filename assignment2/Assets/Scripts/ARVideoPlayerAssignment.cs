@@ -5,14 +5,16 @@ using UnityEngine.Video;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
-
-[RequireComponent(typeof(ARTrackedImageManager))]
+[RequireComponent(typeof (ARTrackedImageManager))]
 public class ARVideoPlayerAssignment : MonoBehaviour
 {
     ARTrackedImageManager manager;
-    public VideoClip video1;
-    public VideoClip video2;
-    public VideoClip video3;
+
+    public VideoClip videoSynergy;
+
+    public VideoClip videoEML;
+
+    public VideoClip videoGENUS;
 
     private void Awake()
     {
@@ -29,48 +31,38 @@ public class ARVideoPlayerAssignment : MonoBehaviour
         manager.trackedImagesChanged -= OnTrackedImagesChanged;
     }
 
-    void OnTrackedImagesChanged (ARTrackedImagesChangedEventArgs eventArgs)
+    void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs args)
     {
-        foreach (var trackedImage in eventArgs.added)
+        foreach (var trackedImage in args.updated)
         {
-            Debug.Log("Addeed new image: " + trackedImage.referenceImage.name);
-        }
+            Transform model = trackedImage.transform.GetChild(0);
+            string imageName = trackedImage.referenceImage.name;
+            model
+                .gameObject
+                .SetActive(trackedImage.trackingState != TrackingState.None &&
+                trackedImage.trackingState != TrackingState.Limited);
 
-        foreach (var trackedImage in eventArgs.updated)
-        {
-            if (trackedImage.trackingState == TrackingState.Tracking)
+            VideoPlayer videoPlayer =
+                model.GetComponentInChildren<VideoPlayer>();
+
+            if (videoPlayer)
             {
-                trackedImage.gameObject.SetActive(true);
-                Debug.Log("Tracking new image: " + trackedImage.referenceImage.name);
-
-                trackedImage.destroyOnRemoval = true;
-                VideoPlayer videoPlayer = manager.trackedImagePrefab.GetComponentInChildren<VideoPlayer>();
-                string videoName = trackedImage.referenceImage.name;
-                videoPlayer.Stop();
-
-                switch (videoName)
+                switch (imageName)
                 {
                     case "Synergy":
-                        videoPlayer.clip = video1;
+                        videoPlayer.clip = videoSynergy;
                         Debug.Log("should play synergy");
-                        videoPlayer.Play();
                         break;
                     case "EML":
-                        videoPlayer.clip = video2;
+                        videoPlayer.clip = videoEML;
                         Debug.Log("should play EML");
-                        videoPlayer.Play();
                         break;
                     case "GENUS":
-                        videoPlayer.clip = video3;
+                        videoPlayer.clip = videoGENUS;
                         Debug.Log("should play GENUS");
-                        videoPlayer.Play();
                         break;
                 }
-                break;
-            }
-            else
-            {
-                trackedImage.gameObject.SetActive(false);
+                videoPlayer.Play();
             }
         }
     }
