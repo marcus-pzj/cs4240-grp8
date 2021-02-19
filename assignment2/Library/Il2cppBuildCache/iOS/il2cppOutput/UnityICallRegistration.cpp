@@ -2664,15 +2664,39 @@ void RegisterAllStrippedInternalCalls()
 
 	//End Registrations for type : UnityEngine.UnityLogWriter
 
+	//Start Registrations for type : UnityEngine.Video.VideoClip
+
+		//System.Double UnityEngine.Video.VideoClip::get_length()
+		void Register_UnityEngine_Video_VideoClip_get_length();
+		Register_UnityEngine_Video_VideoClip_get_length();
+
+	//End Registrations for type : UnityEngine.Video.VideoClip
+
 	//Start Registrations for type : UnityEngine.Video.VideoPlayer
 
-		//System.Void UnityEngine.Video.VideoPlayer::Stop()
-		void Register_UnityEngine_Video_VideoPlayer_Stop();
-		Register_UnityEngine_Video_VideoPlayer_Stop();
+		//System.Boolean UnityEngine.Video.VideoPlayer::get_isPlaying()
+		void Register_UnityEngine_Video_VideoPlayer_get_isPlaying();
+		Register_UnityEngine_Video_VideoPlayer_get_isPlaying();
+
+		//System.Double UnityEngine.Video.VideoPlayer::get_time()
+		void Register_UnityEngine_Video_VideoPlayer_get_time();
+		Register_UnityEngine_Video_VideoPlayer_get_time();
+
+		//System.Void UnityEngine.Video.VideoPlayer::Pause()
+		void Register_UnityEngine_Video_VideoPlayer_Pause();
+		Register_UnityEngine_Video_VideoPlayer_Pause();
+
+		//System.Void UnityEngine.Video.VideoPlayer::Play()
+		void Register_UnityEngine_Video_VideoPlayer_Play();
+		Register_UnityEngine_Video_VideoPlayer_Play();
 
 		//System.Void UnityEngine.Video.VideoPlayer::set_clip(UnityEngine.Video.VideoClip)
 		void Register_UnityEngine_Video_VideoPlayer_set_clip();
 		Register_UnityEngine_Video_VideoPlayer_set_clip();
+
+		//UnityEngine.Video.VideoClip UnityEngine.Video.VideoPlayer::get_clip()
+		void Register_UnityEngine_Video_VideoPlayer_get_clip();
+		Register_UnityEngine_Video_VideoPlayer_get_clip();
 
 	//End Registrations for type : UnityEngine.Video.VideoPlayer
 
