@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
+using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
@@ -15,6 +16,9 @@ public class ARVideoPlayerAssignment : MonoBehaviour
     public VideoClip videoEML;
 
     public VideoClip videoGENUS;
+
+    [SerializeField]
+    private Text currentImageText;
 
     private void Awake()
     {
@@ -35,6 +39,7 @@ public class ARVideoPlayerAssignment : MonoBehaviour
     {
         foreach (var trackedImage in args.updated)
         {
+            currentImageText.text = trackedImage.referenceImage.name;
             Transform model = trackedImage.transform.GetChild(0);
             string imageName = trackedImage.referenceImage.name;
             model
@@ -42,8 +47,40 @@ public class ARVideoPlayerAssignment : MonoBehaviour
                 .SetActive(trackedImage.trackingState != TrackingState.None &&
                 trackedImage.trackingState != TrackingState.Limited);
 
-            VideoPlayer videoPlayer =
-                model.GetComponentInChildren<VideoPlayer>();
+            if (trackedImage.trackingState == TrackingState.None ||
+                trackedImage.trackingState == TrackingState.Limited)
+            {
+                currentImageText.text = "";
+            }
+            // TODO: Keep this in case we wanna switch back, remove before submission
+            // VideoPlayer videoPlayer =
+            //     model.GetComponentInChildren<VideoPlayer>();
+
+            // if (videoPlayer)
+            // {
+            //     switch (imageName)
+            //     {
+            //         case "Synergy":
+            //             videoPlayer.clip = videoSynergy;
+            //             Debug.Log("should play synergy");
+            //             break;
+            //         case "EML":
+            //             videoPlayer.clip = videoEML;
+            //             Debug.Log("should play EML");
+            //             break;
+            //         case "GENUS":
+            //             videoPlayer.clip = videoGENUS;
+            //             Debug.Log("should play GENUS");
+            //             break;
+            //     }
+            //     // videoPlayer.Play();
+            // }
+        }
+        foreach (var trackedImage in args.added)
+        {
+            VideoPlayer videoPlayer = trackedImage.transform.GetChild(0).GetComponentInChildren<VideoPlayer>();
+            string imageName = trackedImage.referenceImage.name;
+            currentImageText.text = imageName;
 
             if (videoPlayer)
             {
@@ -62,8 +99,12 @@ public class ARVideoPlayerAssignment : MonoBehaviour
                         Debug.Log("should play GENUS");
                         break;
                 }
-                videoPlayer.Play();
             }
+        }
+
+        foreach (var trackedImage in args.removed)
+        {
+            // Empty for now
         }
     }
 }

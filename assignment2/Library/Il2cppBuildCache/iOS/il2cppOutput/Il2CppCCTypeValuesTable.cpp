@@ -3177,7 +3177,21 @@ extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3161;
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3162;
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3163;
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3164;
-IL2CPP_EXTERN_C_CONST Il2CppTypeDefinitionSizes* g_Il2CppTypeDefinitionSizesTable[3165] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3165;
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3166;
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3167;
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3168;
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3169;
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3170;
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3171;
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3172;
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3173;
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3174;
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3175;
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3176;
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3177;
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3178;
+IL2CPP_EXTERN_C_CONST Il2CppTypeDefinitionSizes* g_Il2CppTypeDefinitionSizesTable[3179] = 
 {
 	(&g_typeDefinitionSize0),
 	(&g_typeDefinitionSize1),
@@ -6344,4 +6358,18 @@ IL2CPP_EXTERN_C_CONST Il2CppTypeDefinitionSizes* g_Il2CppTypeDefinitionSizesTabl
 	(&g_typeDefinitionSize3162),
 	(&g_typeDefinitionSize3163),
 	(&g_typeDefinitionSize3164),
+	(&g_typeDefinitionSize3165),
+	(&g_typeDefinitionSize3166),
+	(&g_typeDefinitionSize3167),
+	(&g_typeDefinitionSize3168),
+	(&g_typeDefinitionSize3169),
+	(&g_typeDefinitionSize3170),
+	(&g_typeDefinitionSize3171),
+	(&g_typeDefinitionSize3172),
+	(&g_typeDefinitionSize3173),
+	(&g_typeDefinitionSize3174),
+	(&g_typeDefinitionSize3175),
+	(&g_typeDefinitionSize3176),
+	(&g_typeDefinitionSize3177),
+	(&g_typeDefinitionSize3178),
 };

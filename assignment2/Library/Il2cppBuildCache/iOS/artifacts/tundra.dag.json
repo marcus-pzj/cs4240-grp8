@@ -19,52 +19,52 @@
       "DebugActionIndex": 0
     },
     {
-      "Annotation": "Il2Cpp /Users/giam/Desktop/cs4240-grp8/assignment2/Library/Il2cppBuildCache/iOS/il2cppOutput",
-      "Action": "\"/Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/il2cpp/build/deploy/netcoreapp3.1/il2cpp\" --convert-to-cpp --emit-null-checks --enable-array-bounds-check --dotnetprofile=\"unityaot\" --additional-cpp=\"/Users/giam/Desktop/cs4240-grp8/assignment2/Library/Il2cppBuildCache/iOS/additionalCppFiles/UnityClassRegistration.cpp\" --additional-cpp=\"/Users/giam/Desktop/cs4240-grp8/assignment2/Library/Il2cppBuildCache/iOS/additionalCppFiles/UnityICallRegistration.cpp\" --incremental-g-c-time-slice=3 --avoid-dynamic-library-copy --profiler-report --map-file-parser=\"/Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Tools/MapFileParser/MapFileParser\" --directory=\"/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed\" --generatedcppdir=\"/Users/giam/Desktop/cs4240-grp8/assignment2/Library/Il2cppBuildCache/iOS/il2cppOutput\"",
+      "Annotation": "Il2Cpp /Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Library/Il2cppBuildCache/iOS/il2cppOutput",
+      "Action": "\"/Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/il2cpp/build/deploy/netcoreapp3.1/il2cpp\" --convert-to-cpp --emit-null-checks --enable-array-bounds-check --dotnetprofile=\"unityaot\" --additional-cpp=\"/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Library/Il2cppBuildCache/iOS/additionalCppFiles/UnityClassRegistration.cpp\" --additional-cpp=\"/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Library/Il2cppBuildCache/iOS/additionalCppFiles/UnityICallRegistration.cpp\" --incremental-g-c-time-slice=3 --avoid-dynamic-library-copy --profiler-report --map-file-parser=\"/Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Tools/MapFileParser/MapFileParser\" --directory=\"/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed\" --generatedcppdir=\"/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Library/Il2cppBuildCache/iOS/il2cppOutput\"",
       "Inputs": [
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/ARFoundationRemote.Meshing.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/ARFoundationRemote.Runtime.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/Assembly-CSharp.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/Mono.Security.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/System.Configuration.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/System.Core.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/System.Xml.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/System.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/Unity.XR.ARFoundation.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/Unity.XR.ARKit.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/Unity.XR.ARSubsystems.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/Unity.XR.Management.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.ARModule.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.AnimationModule.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.AudioModule.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.CoreModule.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.GameCenterModule.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.GridModule.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.IMGUIModule.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.ImageConversionModule.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.InputLegacyModule.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.InputModule.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.ParticleSystemModule.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.Physics2DModule.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.PhysicsModule.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.SharedInternalsModule.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.SpatialTracking.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.SpriteShapeModule.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.SubsystemsModule.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.TextRenderingModule.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.TilemapModule.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.UI.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.UIModule.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.UnityWebRequestModule.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.VideoModule.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.XRModule.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.dll",
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/mscorlib.dll"
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/ARFoundationRemote.Meshing.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/ARFoundationRemote.Runtime.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/Assembly-CSharp.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/Mono.Security.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/System.Configuration.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/System.Core.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/System.Xml.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/System.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/Unity.XR.ARFoundation.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/Unity.XR.ARKit.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/Unity.XR.ARSubsystems.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/Unity.XR.Management.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.ARModule.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.AnimationModule.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.AudioModule.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.CoreModule.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.GameCenterModule.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.GridModule.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.IMGUIModule.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.ImageConversionModule.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.InputLegacyModule.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.InputModule.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.ParticleSystemModule.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.Physics2DModule.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.PhysicsModule.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.SharedInternalsModule.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.SpatialTracking.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.SpriteShapeModule.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.SubsystemsModule.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.TextRenderingModule.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.TilemapModule.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.UI.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.UIModule.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.UnityWebRequestModule.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.VideoModule.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.XRModule.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/UnityEngine.dll",
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Temp/StagingArea/Data/Managed/mscorlib.dll"
       ],
       "Outputs": [],
       "TargetDirectories": [
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Library/Il2cppBuildCache/iOS/il2cppOutput"
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Library/Il2cppBuildCache/iOS/il2cppOutput"
       ],
       "PassIndex": 0,
       "Deps": [],
@@ -75,13 +75,13 @@
       "DebugActionIndex": 1
     },
     {
-      "Annotation": "Copy Additional C++ File /Users/giam/Desktop/cs4240-grp8/assignment2/Library/Il2cppBuildCache/iOS/il2cppOutput/UnityClassRegistration.cpp",
-      "Action": "cp \"/Users/giam/Desktop/cs4240-grp8/assignment2/Library/Il2cppBuildCache/iOS/additionalCppFiles/UnityClassRegistration.cpp\" \"/Users/giam/Desktop/cs4240-grp8/assignment2/Library/Il2cppBuildCache/iOS/il2cppOutput/UnityClassRegistration.cpp\" ",
+      "Annotation": "Copy Additional C++ File /Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Library/Il2cppBuildCache/iOS/il2cppOutput/UnityClassRegistration.cpp",
+      "Action": "cp \"/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Library/Il2cppBuildCache/iOS/additionalCppFiles/UnityClassRegistration.cpp\" \"/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Library/Il2cppBuildCache/iOS/il2cppOutput/UnityClassRegistration.cpp\" ",
       "Inputs": [
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Library/Il2cppBuildCache/iOS/additionalCppFiles/UnityClassRegistration.cpp"
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Library/Il2cppBuildCache/iOS/additionalCppFiles/UnityClassRegistration.cpp"
       ],
       "Outputs": [
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Library/Il2cppBuildCache/iOS/il2cppOutput/UnityClassRegistration.cpp"
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Library/Il2cppBuildCache/iOS/il2cppOutput/UnityClassRegistration.cpp"
       ],
       "TargetDirectories": [],
       "PassIndex": 0,
@@ -95,13 +95,13 @@
       "DebugActionIndex": 2
     },
     {
-      "Annotation": "Copy Additional C++ File /Users/giam/Desktop/cs4240-grp8/assignment2/Library/Il2cppBuildCache/iOS/il2cppOutput/UnityICallRegistration.cpp",
-      "Action": "cp \"/Users/giam/Desktop/cs4240-grp8/assignment2/Library/Il2cppBuildCache/iOS/additionalCppFiles/UnityICallRegistration.cpp\" \"/Users/giam/Desktop/cs4240-grp8/assignment2/Library/Il2cppBuildCache/iOS/il2cppOutput/UnityICallRegistration.cpp\" ",
+      "Annotation": "Copy Additional C++ File /Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Library/Il2cppBuildCache/iOS/il2cppOutput/UnityICallRegistration.cpp",
+      "Action": "cp \"/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Library/Il2cppBuildCache/iOS/additionalCppFiles/UnityICallRegistration.cpp\" \"/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Library/Il2cppBuildCache/iOS/il2cppOutput/UnityICallRegistration.cpp\" ",
       "Inputs": [
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Library/Il2cppBuildCache/iOS/additionalCppFiles/UnityICallRegistration.cpp"
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Library/Il2cppBuildCache/iOS/additionalCppFiles/UnityICallRegistration.cpp"
       ],
       "Outputs": [
-        "/Users/giam/Desktop/cs4240-grp8/assignment2/Library/Il2cppBuildCache/iOS/il2cppOutput/UnityICallRegistration.cpp"
+        "/Users/thaddeus/Desktop/4240 Labs/Assn2/cs4240-grp8/assignment2/Library/Il2cppBuildCache/iOS/il2cppOutput/UnityICallRegistration.cpp"
       ],
       "TargetDirectories": [],
       "PassIndex": 0,
@@ -117,7 +117,7 @@
   ],
   "FileSignatures": [
     {
-      "File": "../../../../../../Library"
+      "File": "../../../../../../../../Library"
     },
     {
       "File": "../../../Temp/StagingArea/Data/Managed"

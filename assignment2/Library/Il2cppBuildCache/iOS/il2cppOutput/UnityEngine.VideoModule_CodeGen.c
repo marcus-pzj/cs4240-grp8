@@ -18,8 +18,8 @@ extern void VideoClipPlayable_GetHandle_mE4D1CCE51DFBB2228B54187915C00D4E5FAD4F8
 extern void VideoClipPlayable_Equals_m8BFF58C5788058758A88D0C2E0295D994BAC1E1E_AdjustorThunk (void);
 // 0x00000003 System.Void UnityEngine.Video.VideoPlayer::set_clip(UnityEngine.Video.VideoClip)
 extern void VideoPlayer_set_clip_mECA56632F836FE1297D1A10115570E07D05FDB6C (void);
-// 0x00000004 System.Void UnityEngine.Video.VideoPlayer::Play()
-extern void VideoPlayer_Play_m2AD0D39D70055A5AADCF63430D3D9CEC7DCB0516 (void);
+// 0x00000004 System.Void UnityEngine.Video.VideoPlayer::Stop()
+extern void VideoPlayer_Stop_mC65F299C170F41E6823207427F782982031DE293 (void);
 // 0x00000005 System.Void UnityEngine.Video.VideoPlayer::InvokePrepareCompletedCallback_Internal(UnityEngine.Video.VideoPlayer)
 extern void VideoPlayer_InvokePrepareCompletedCallback_Internal_m484EB137376A703BF6A3FA6C256B2A6FF1AE43C0 (void);
 // 0x00000006 System.Void UnityEngine.Video.VideoPlayer::InvokeFrameReadyCallback_Internal(UnityEngine.Video.VideoPlayer,System.Int64)
@@ -73,7 +73,7 @@ static Il2CppMethodPointer s_methodPointers[28] =
 	VideoClipPlayable_GetHandle_mE4D1CCE51DFBB2228B54187915C00D4E5FAD4F86_AdjustorThunk,
 	VideoClipPlayable_Equals_m8BFF58C5788058758A88D0C2E0295D994BAC1E1E_AdjustorThunk,
 	VideoPlayer_set_clip_mECA56632F836FE1297D1A10115570E07D05FDB6C,
-	VideoPlayer_Play_m2AD0D39D70055A5AADCF63430D3D9CEC7DCB0516,
+	VideoPlayer_Stop_mC65F299C170F41E6823207427F782982031DE293,
 	VideoPlayer_InvokePrepareCompletedCallback_Internal_m484EB137376A703BF6A3FA6C256B2A6FF1AE43C0,
 	VideoPlayer_InvokeFrameReadyCallback_Internal_m5D9A702C59BC6E2F509910283A64A8962EB8BB26,
 	VideoPlayer_InvokeLoopPointReachedCallback_Internal_mAA1C70B8E462025007C56ED08C4F7C91A39462D2,
@@ -105,14 +105,14 @@ static const int32_t s_InvokerIndices[28] =
 	1936,
 	2236,
 	2752,
-	4447,
-	4052,
-	4447,
-	4447,
-	4447,
+	4450,
 	4054,
-	4447,
-	4050,
+	4450,
+	4450,
+	4450,
+	4056,
+	4450,
+	4052,
 	1224,
 	2236,
 	570,
