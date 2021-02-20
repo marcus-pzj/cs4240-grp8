@@ -39,10 +39,11 @@ public class ARVideoPlayerAssignment : MonoBehaviour
     {
         foreach (var trackedImage in args.updated)
         {
-            currentImageText.text = trackedImage.referenceImage.name;
             Transform model = trackedImage.transform.GetChild(0);
             string imageName = trackedImage.referenceImage.name;
-            model
+			currentImageText.text = "<b>" + imageName + "</b>";
+
+			model
                 .gameObject
                 .SetActive(trackedImage.trackingState != TrackingState.None &&
                 trackedImage.trackingState != TrackingState.Limited);
@@ -80,7 +81,7 @@ public class ARVideoPlayerAssignment : MonoBehaviour
         {
             VideoPlayer videoPlayer = trackedImage.transform.GetChild(0).GetComponentInChildren<VideoPlayer>();
             string imageName = trackedImage.referenceImage.name;
-            currentImageText.text = "<b>Now playing:" + imageName + "</b>";
+            currentImageText.text = "<b>" + imageName + "</b>";
 
             if (videoPlayer)
             {

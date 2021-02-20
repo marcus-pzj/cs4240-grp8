@@ -14,37 +14,36 @@ public class VideoControls : MonoBehaviour
 
     void Awake() {
         videoPlayer = GetComponent<VideoPlayer>();
-		videoSlider = GetComponent<Slider>();
     }
 
     // Update is called once per frame
     void Update()
 	{
-		if (videoPlayer)
+		if (videoPlayer != null)
 		{
 			setTimeLeftUI();
-			videoSlider.value = (float)videoPlayer.frame / (float)videoPlayer.clip.frameCount;
+			videoSlider.value = (float)videoPlayer.frame / (float)videoPlayer.frameCount;
 		}
 		else
 		{
 			resetTimeUI();
 		}
 	}
-/*
-    public void PlayPause() {
-        videoPlayer = GetComponent<VideoPlayer>();
-        if (videoPlayer) {
-            if (videoPlayer.isPlaying) {
-                Debug.Log("Should pause");
-                videoPlayer.Pause();
-            } else {
-                videoPlayer.Play();
-            }
-        } else {
-            Debug.Log("No player reference");
-        }
+	/*
+		public void PlayPause() {
+			videoPlayer = GetComponent<VideoPlayer>();
+			if (videoPlayer) {
+				if (videoPlayer.isPlaying) {
+					Debug.Log("Should pause");
+					videoPlayer.Pause();
+				} else {
+					videoPlayer.Play();
+				}
+			} else {
+				Debug.Log("No player reference");
+			}
 
-    }*/
+		}*/
 
 	void setTimeLeftUI()
 	{
@@ -56,7 +55,12 @@ public class VideoControls : MonoBehaviour
     void resetTimeUI() {
         //currentMinutes.text = "00";
         //currentSeconds.text = "00";
-        totalMinutes.text = "00";
+        totalMinutes.text = "-00:00";
         //totalSeconds.text = "00";
     }
+
+	public void SetVideoFrame(float sliderValue)
+	{
+		videoPlayer.frame = Mathf.RoundToInt(sliderValue * videoPlayer.frameCount);
+	}
 }
