@@ -57,12 +57,20 @@ public class ARVideoPlayerAssignment : MonoBehaviour
         }
         foreach (var trackedImage in args.added)
         {
-            VideoPlayer videoPlayer =
-                trackedImage
-                    .transform
-                    .GetChild(0)
-                    .GetComponentInChildren<VideoPlayer>();
+            Transform videoPlayerTransform = trackedImage.transform.GetChild(0);
 
+            VideoPlayer videoPlayer =
+                videoPlayerTransform.GetComponentInChildren<VideoPlayer>();
+
+            Vector3 currScale = videoPlayerTransform.localScale;
+
+            float heightWidthRatio =
+                trackedImage.referenceImage.size[1] /
+                trackedImage.referenceImage.size[0];
+            float currWidth = trackedImage.size[0];
+
+            videoPlayerTransform.localScale =
+                new Vector3(currWidth, 0.0001f, currWidth * heightWidthRatio);
             string imageName = trackedImage.referenceImage.name;
             currentImageText.text = "<b>Now playing:" + imageName + "</b>";
 
