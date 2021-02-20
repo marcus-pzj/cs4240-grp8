@@ -41,24 +41,19 @@ public class ARVideoPlayerAssignment : MonoBehaviour
         {
             Transform model = trackedImage.transform.GetChild(0);
             string imageName = trackedImage.referenceImage.name;
-			currentImageText.text = "<b>" + imageName + "</b>";
 
 			model
                 .gameObject
                 .SetActive(trackedImage.trackingState != TrackingState.None &&
                 trackedImage.trackingState != TrackingState.Limited);
 
-            if (
-                trackedImage.trackingState == TrackingState.None ||
-                trackedImage.trackingState == TrackingState.Limited
-            )
-            {
-                currentImageText.text = "<b>Scan image</b>";
-            }
+			currentImageText.text = model.gameObject.activeSelf ? 
+				"<b>" + trackedImage.referenceImage.name + "</b>" : "<b>Scan image</b>";
+
         }
         foreach (var trackedImage in args.added)
         {
-            Transform videoPlayerTransform = trackedImage.transform.GetChild(0);
+			Transform videoPlayerTransform = trackedImage.transform.GetChild(0).GetChild(0);
 
             VideoPlayer videoPlayer =
                 videoPlayerTransform.GetComponentInChildren<VideoPlayer>();
@@ -73,11 +68,11 @@ public class ARVideoPlayerAssignment : MonoBehaviour
             videoPlayerTransform.localScale =
                 new Vector3(currWidth, 0.0001f, currWidth * heightWidthRatio);
             string imageName = trackedImage.referenceImage.name;
-            currentImageText.text = "<b>" + imageName + "</b>";
 
             if (videoPlayer)
-            {
-                switch (imageName)
+			{
+				currentImageText.text = "<b>" + imageName + "</b>";
+				switch (imageName)
                 {
                     case "Synergy":
                         videoPlayer.clip = videoSynergy;
