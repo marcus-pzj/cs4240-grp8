@@ -37,6 +37,8 @@ public class ARVideoPlayerAssignment : MonoBehaviour
 
     void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs args)
     {
+		bool isTracking = false;
+
         foreach (var trackedImage in args.updated)
         {
             Transform model = trackedImage.transform.GetChild(0);
@@ -47,10 +49,18 @@ public class ARVideoPlayerAssignment : MonoBehaviour
                 .SetActive(trackedImage.trackingState != TrackingState.None &&
                 trackedImage.trackingState != TrackingState.Limited);
 
-			currentImageText.text = model.gameObject.activeSelf ? 
-				"<b>" + trackedImage.referenceImage.name + "</b>" : "<b>Scan image</b>";
-
+			if(model.gameObject.activeSelf)
+			{
+				currentImageText.text = "<b>" + trackedImage.referenceImage.name + "</b>";
+				isTracking = true;
+			}
         }
+
+		if (!isTracking)
+		{
+			currentImageText.text = "<b>Scan image</b>";
+		}
+
         foreach (var trackedImage in args.added)
         {
 			Transform videoPlayerTransform = trackedImage.transform.GetChild(0).GetChild(0);
