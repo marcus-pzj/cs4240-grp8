@@ -50,7 +50,7 @@ public class ARVideoPlayerAssignment : MonoBehaviour
             if (trackedImage.trackingState == TrackingState.None ||
                 trackedImage.trackingState == TrackingState.Limited)
             {
-                currentImageText.text = "";
+                currentImageText.text = "<b>Scan image</b>";
             }
             // TODO: Keep this in case we wanna switch back, remove before submission
             // VideoPlayer videoPlayer =
@@ -80,7 +80,7 @@ public class ARVideoPlayerAssignment : MonoBehaviour
         {
             VideoPlayer videoPlayer = trackedImage.transform.GetChild(0).GetComponentInChildren<VideoPlayer>();
             string imageName = trackedImage.referenceImage.name;
-            currentImageText.text = imageName;
+            currentImageText.text = "<b>Now playing:" + imageName + "</b>";
 
             if (videoPlayer)
             {
