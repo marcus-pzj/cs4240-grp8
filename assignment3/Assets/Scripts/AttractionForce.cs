@@ -43,6 +43,7 @@ public class AttractionForce : MonoBehaviour
                 projectileObject.transform.parent = this.gameObject.transform;
                 Destroy(projectileRigibody);
                 projectileObject.transform.position += offsetPosition;
+                // FIXME: Object is not sticking properly to the gun object
             }
 
             float forceRate = (m_Force / distance);
@@ -59,6 +60,7 @@ public class AttractionForce : MonoBehaviour
             FireProjectile();
             projectileObject = null;
             laser.SetActive(true);
+            // FIXME: Need to make sure it fires properly
         }
 
         if (projectileObject == null)
