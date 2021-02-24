@@ -40,10 +40,10 @@ public class AttractionForce : MonoBehaviour
             {
                 Rigidbody projectileRigibody = projectileObject.GetComponent<Rigidbody>();
                 projectileObject.layer = 7; // Set layer to inactive projectile
-                projectileObject.transform.parent = this.gameObject.transform;
                 Destroy(projectileRigibody);
-                projectileObject.transform.position += offsetPosition;
-                // FIXME: Object is not sticking properly to the gun object
+                projectileObject.transform.parent = this.gameObject.transform;
+                projectileObject.transform.localPosition = offsetPosition;
+                projectileObject.transform.localEulerAngles = Vector3.zero;
             }
 
             float forceRate = (m_Force / distance);

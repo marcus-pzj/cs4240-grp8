@@ -405,7 +405,7 @@ MonoBehaviour:
   m_Type: 1
   m_Pivot: {fileID: 1235324251}
   m_Radius: 10
-  m_StopRadius: 1
+  m_StopRadius: 2
   m_Force: 100
   m_Layers:
     serializedVersion: 2
