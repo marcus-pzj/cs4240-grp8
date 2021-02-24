@@ -19,6 +19,7 @@ public class AttractionForce : MonoBehaviour
 
     private void FixedUpdate()
     {
+        OVRInput.FixedUpdate();
         Collider[] colliders = Physics.OverlapSphere(m_Pivot.position, m_Radius, m_Layers);
 
         float signal = (float)m_Type;
@@ -38,12 +39,8 @@ public class AttractionForce : MonoBehaviour
             if (distance < m_StopRadius)
             {
                 Rigidbody projectileRigibody = projectileObject.GetComponent<Rigidbody>();
-                //projectileRigibody.useGravity = false;
-                //projectileRigibody.velocity = Vector3.zero;
-                //projectileRigibody.angularVelocity = Vector3.zero;
                 projectileObject.layer = 7; // Set layer to inactive projectile
                 projectileObject.transform.parent = this.gameObject.transform;
-                //projectileObject.transform.position = offsetPosition;
                 Destroy(projectileRigibody);
                 projectileObject.transform.position += offsetPosition;
             }
@@ -52,5 +49,28 @@ public class AttractionForce : MonoBehaviour
 
             body.AddForce(direction * (forceRate / body.mass) * signal);
         }
+    }
+
+    private void Update()
+    {
+        OVRInput.Update();
+        if (OVRInput.GetDown(OVRInput.Button.One) && projectileObject != null)
+        {
+            FireProjectile();
+            projectileObject = null;
+            laser.SetActive(true);
+        }
+
+        if (projectileObject == null)
+        {
+            // Set the laser to active here
+        }
+    }
+
+    public void FireProjectile()
+    {
+        projectileObject.transform.parent = null;
+        projectileObject.AddComponent<Rigidbody>();
+        projectileObject.GetComponent<Rigidbody>().AddForce(0, 0, 100);
     }
 }

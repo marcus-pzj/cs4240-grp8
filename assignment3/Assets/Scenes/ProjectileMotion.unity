@@ -411,7 +411,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   projectileObject: {fileID: 0}
-  laser: {fileID: 0}
+  laser: {fileID: 855828366}
 --- !u!1 &1285453547
 GameObject:
   m_ObjectHideFlags: 0
