@@ -12,7 +12,17 @@ public class AttractionForce : MonoBehaviour
     public float m_Force;
     public LayerMask m_Layers;
 
-    private GameObject projectileObject;
+    public GameObject projectileObject;
+    public GameObject laser;
+    private bool pickedUp = false;
+
+    private void Update()
+    {
+        if (projectileObject != null && pickedUp)
+        {
+            projectileObject.transform.position = this.gameObject.transform.position;
+        }
+    }
 
     private void FixedUpdate()
     {
@@ -33,7 +43,11 @@ public class AttractionForce : MonoBehaviour
             direction = direction.normalized;
 
             if (distance < m_StopRadius)
-                continue;
+            {
+                projectileObject.GetComponent<Rigidbody>().useGravity = false;
+                projectileObject.layer = 7; // Set layer to inactive projectile
+                pickedUp = true;
+            }
 
             float forceRate = (m_Force / distance);
 

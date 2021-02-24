@@ -406,10 +406,12 @@ MonoBehaviour:
   m_Pivot: {fileID: 1235324251}
   m_Radius: 10
   m_StopRadius: 1
-  m_Force: 200
+  m_Force: 50
   m_Layers:
     serializedVersion: 2
     m_Bits: 64
+  projectileObject: {fileID: 0}
+  laser: {fileID: 0}
 --- !u!1 &1285453547
 GameObject:
   m_ObjectHideFlags: 0
