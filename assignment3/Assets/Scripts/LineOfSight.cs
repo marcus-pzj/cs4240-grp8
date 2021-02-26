@@ -2,9 +2,20 @@ using UnityEngine;
 
 public class LineOfSight : MonoBehaviour
 {
+    public bool hideDebugLaser;
+
+    private void Start()
+    {
+        if (hideDebugLaser)
+        {
+            Renderer renderer = this.gameObject.GetComponent<Renderer>();
+            renderer.material.SetColor("_Color", Color.clear);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Projectile"))
+        if (other.gameObject.CompareTag("Projectile") && other.gameObject.layer == 7)
         {
             other.gameObject.layer = 6;
 

@@ -12,10 +12,10 @@ public class AttractionForce : MonoBehaviour
     public float m_Force;
     public LayerMask m_Layers;
 
-    public GameObject projectileObject;
+    [HideInInspector] public GameObject projectileObject;
     public GameObject laser;
-    private Vector3 offsetPosition = new Vector3(0.0f, 0.0f, 1.0f);
-
+    private Vector3 offsetPosition = new Vector3(0.0f, 0.0f, 10.0f);
+    public float firingForce;
 
     private void FixedUpdate()
     {
@@ -39,8 +39,13 @@ public class AttractionForce : MonoBehaviour
             if (distance < m_StopRadius)
             {
                 Rigidbody projectileRigibody = projectileObject.GetComponent<Rigidbody>();
-                projectileObject.layer = 7; // Set layer to inactive projectile
-                Destroy(projectileRigibody);
+                projectileObject.layer = 7; // Set layer to fired projectile
+
+                projectileRigibody.velocity = Vector3.zero;
+                projectileRigibody.angularVelocity = Vector3.zero;
+                projectileRigibody.isKinematic = true;
+
+                // Set the projectile in a fixed position in front of tool
                 projectileObject.transform.parent = this.gameObject.transform;
                 projectileObject.transform.localPosition = offsetPosition;
                 projectileObject.transform.localEulerAngles = Vector3.zero;
@@ -55,24 +60,27 @@ public class AttractionForce : MonoBehaviour
     private void Update()
     {
         OVRInput.Update();
-        if (OVRInput.GetDown(OVRInput.Button.One) && projectileObject != null)
+        if (
+            OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) > 0.5f &&
+            projectileObject != null
+           )
         {
             FireProjectile();
             projectileObject = null;
-            laser.SetActive(true);
-            // FIXME: Need to make sure it fires properly
         }
 
         if (projectileObject == null)
         {
-            // Set the laser to active here
+            laser.SetActive(true);
         }
     }
 
     public void FireProjectile()
     {
+        projectileObject.layer = 8;
+        Rigidbody projectilRigidBody = projectileObject.GetComponent<Rigidbody>();
+        projectilRigidBody.isKinematic = false;
+        projectilRigidBody.AddRelativeForce(0, 0, firingForce);
         projectileObject.transform.parent = null;
-        projectileObject.AddComponent<Rigidbody>();
-        projectileObject.GetComponent<Rigidbody>().AddForce(0, 0, 100);
     }
 }
