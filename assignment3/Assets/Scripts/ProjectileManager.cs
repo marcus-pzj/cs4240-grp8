@@ -2,23 +2,17 @@ using UnityEngine;
 
 public class ProjectileManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float delay;
+    private void Update()
     {
-        InvokeRepeating("DeleteInactiveProjectiles", 0.0f, 3.0f);
+        if (this.gameObject.layer == 8)
+        {
+            Invoke("DespawnProjectile", delay);
+        }
     }
 
-    private void DeleteInactiveProjectiles()
+    private void DespawnProjectile()
     {
-        foreach (
-            Transform child in this.transform
-        )
-        {
-            if (child.gameObject.layer == 8)
-            {
-
-                Destroy(child.gameObject);
-            }
-        }
+        Destroy(this.gameObject);
     }
 }
