@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 212970743972202316}
   - component: {fileID: 212970743972202315}
   - component: {fileID: 212970743972202319}
+  - component: {fileID: 26660776648783903}
   m_Layer: 7
-  m_Name: Sphere
+  m_Name: Simple Spehere Projectile
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,3 +113,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &26660776648783903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212970743972202314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e580b4c7426847419e009db9dec1264, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 5
