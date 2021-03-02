@@ -21,18 +21,6 @@ public class ScoreUpdate : MonoBehaviour
 		scoreText = GetComponentInChildren<Text>();
 	}
 
-	void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.RightBracket))
-		{
-			increaseScore();
-		}
-		if (Input.GetKeyDown(KeyCode.LeftBracket))
-		{
-			decreaseScore();
-		}
-	}
-
 	public void increaseScore()
 	{
 		score++;
