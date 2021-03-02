@@ -121,8 +121,10 @@ public class OvrAvatarSDKManager : MonoBehaviour
     void OnDestroy()
     {
         CAPI.Shutdown();
+// #if (UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || (UNITY_ANDROID && !UNITY_EDITOR)) // enable for Mac
         CAPI.ovrAvatar_RegisterLoggingCallback(null);
         CAPI.ovrAvatar_Shutdown();
+// #endif // enable for Mac
     }
 
 	void Update()
