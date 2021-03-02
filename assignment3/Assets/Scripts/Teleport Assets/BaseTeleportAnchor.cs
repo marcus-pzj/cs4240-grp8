@@ -7,7 +7,6 @@ using UnityEngine.XR.Interaction.Toolkit;
 /// specific position
 public class BaseTeleportAnchor : BaseTeleport
 {
-    [SerializeField]
     Transform m_TeleportAnchorTransform;
     public Transform teleportAnchorTransform
     {

@@ -37,7 +37,6 @@ public class Teleporter : LocomotionManager
 
         var xrRig = locomotion.xrRig;
         if (xrRig != null) {
-            Debug.Log("teleporting");
             switch (currentRequest.matchOrientation) {
                 case MatchOrientation.WorldSpaceUp:
                     xrRig.MatchRigUp(Vector3.up);

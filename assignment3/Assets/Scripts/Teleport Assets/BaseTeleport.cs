@@ -15,7 +15,6 @@ public abstract class BaseTeleport : XRBaseInteractable
 
     // Teleporter that this interactable will communicate teleport requests to
     // If no teleporter is configured, will attempt to find one on Awake
-    [SerializeField]
     Teleporter m_Teleporter;
     public Teleporter teleporter
     {
@@ -58,13 +57,11 @@ public abstract class BaseTeleport : XRBaseInteractable
 
     protected virtual bool GenerateTeleportRequest(XRBaseInteractor interactor, RaycastHit raycastHit, ref TeleportRequest teleportRequest)
     {
-        Debug.Log("GenerateTeleportRequest");
         return false;
     }
 
     void SendTeleportRequest(XRBaseInteractor interactor)
     {
-        Debug.Log("Sending Teleport Request");
         if (!interactor || m_Teleporter == null)
             return;
 
@@ -78,7 +75,6 @@ public abstract class BaseTeleport : XRBaseInteractable
                         break;
                     }
                 }
-
                 if (found) {
                     var tr = new TeleportRequest {
                         matchOrientation = m_MatchOrientation,
@@ -94,7 +90,6 @@ public abstract class BaseTeleport : XRBaseInteractable
 
     protected override void OnSelectEntered(XRBaseInteractor interactor)
     {
-        Debug.Log("OnSelectEntered");
         if (m_TeleportTrigger == TeleportTrigger.OnSelectEntered)
             SendTeleportRequest(interactor);
 
@@ -103,7 +98,6 @@ public abstract class BaseTeleport : XRBaseInteractable
 
     protected override void OnSelectExited(XRBaseInteractor interactor)
     {
-        Debug.Log("OnSelectExited");
         if (m_TeleportTrigger == TeleportTrigger.OnSelectExited)
             SendTeleportRequest(interactor);
 
@@ -112,7 +106,6 @@ public abstract class BaseTeleport : XRBaseInteractable
 
     protected override void OnActivate(XRBaseInteractor interactor)
     {
-        Debug.Log("OnActivate");
         if (m_TeleportTrigger == TeleportTrigger.OnActivate)
             SendTeleportRequest(interactor);
 
