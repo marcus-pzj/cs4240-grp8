@@ -173,6 +173,4 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_CustomReticle: {fileID: 0}
-  m_Teleporter: {fileID: 0}
   m_TeleportTrigger: 0
-  m_TeleportAnchorTransform: {fileID: 6633297488816135431}
