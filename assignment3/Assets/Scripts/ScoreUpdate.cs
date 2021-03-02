@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/* To include methods in another class:
+ * declare: ScoreUpdate scoreUpdate;
+ * initialize: scoreUpdate = GameObject.Find("ScoreObject").GetComponent<ScoreUpdate>();
+ * call: scoreUpdate.increaseScore() / decreaseScore();
+ */
+
 public class ScoreUpdate : MonoBehaviour
 {
 	Text scoreText;
@@ -12,7 +18,7 @@ public class ScoreUpdate : MonoBehaviour
     void Start()
     {
 		score = 0;
-		scoreText = GetComponent<Text>();
+		scoreText = GetComponentInChildren<Text>();
 	}
 
 	void Update()
@@ -27,16 +33,16 @@ public class ScoreUpdate : MonoBehaviour
 		}
 	}
 
-	void increaseScore()
+	public void increaseScore()
 	{
 		score++;
 		scoreText.text = score.ToString();
 	}
 
-	void decreaseScore()
+	public void decreaseScore()
 	{
 		score--;
-		GetComponent<Animator>().SetTrigger("Decrease");
+		GetComponentInChildren<Animator>().SetTrigger("Decrease");
 		scoreText.text = score.ToString();
 	}
 }
