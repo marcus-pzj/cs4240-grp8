@@ -248,6 +248,12 @@ public class BreakableWindow : MonoBehaviour {
                 }
             }
             else breakWindow();
-        }        
+        }
+        Invoke("DestroySelf", 3.0f);
+    }
+
+    void DestroySelf()
+    {
+        Destroy(gameObject);
     }
 }
