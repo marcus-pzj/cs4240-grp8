@@ -248,6 +248,8 @@ public class BreakableWindow : MonoBehaviour {
                 }
             }
             else breakWindow();
+            GameObject scoreBoard = GameObject.FindWithTag("Score");
+            scoreBoard.GetComponent<ScoreUpdate>().increaseScore();
         }
         Invoke("DestroySelf", 3.0f);
     }

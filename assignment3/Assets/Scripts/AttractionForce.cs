@@ -14,7 +14,7 @@ public class AttractionForce : MonoBehaviour
 
     [HideInInspector] public GameObject projectileObject;
     public GameObject laser;
-    private Vector3 offsetPosition = new Vector3(0.0f, 0.0f, 10.0f);
+    private Vector3 offsetPosition = new Vector3(0.0f, 0.0f, 15.0f);
     public float firingForce;
 
     private void FixedUpdate()
