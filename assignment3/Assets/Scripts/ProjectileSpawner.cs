@@ -33,7 +33,11 @@ public class ProjectileSpawner : MonoBehaviour
                 Vector2 randPos = Random.insideUnitCircle * spawnRadius;
                 Instantiate(
                     projectilePrefab,
-                    new Vector3(randPos.x, heightOffset, randPos.y),
+                    new Vector3(
+                        randPos.x + transform.position.x,
+                        heightOffset,
+                        randPos.y + transform.position.z
+                    ),
                     Quaternion.identity,
                     transform
                 );
