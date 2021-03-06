@@ -13614,14 +13614,14 @@ MonoBehaviour:
   JumpForce: 0.3
   RotationAmount: 1.5
   RotationRatchet: 45
-  SnapRotation: 1
+  SnapRotation: 0
   FixedSpeedSteps: 0
   HmdResetsY: 1
   HmdRotatesY: 1
   GravityModifier: 1
   useProfileData: 1
-  EnableLinearMovement: 1
-  EnableRotation: 1
+  EnableLinearMovement: 0
+  EnableRotation: 0
   RotationEitherThumbstick: 0
 --- !u!114 &5218479522128874824
 MonoBehaviour:
@@ -13861,8 +13861,6 @@ GameObject:
   - component: {fileID: 5218479522128874846}
   - component: {fileID: 5218479522128874824}
   - component: {fileID: 5331177507254458606}
-  - component: {fileID: 5218479522135423151}
-  - component: {fileID: 5218479522135423152}
   m_Layer: 0
   m_Name: OVRCameraRig
   m_TagString: Untagged
@@ -13870,33 +13868,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &5218479522135423151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5218479522135423150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d02cfe773bf7f446bba029048e780d30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Locomotion: {fileID: 0}
---- !u!114 &5218479522135423152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5218479522135423150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9958023fbbb954b48b547b6b7d75608a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Timeout: 10
-  m_XRRig: {fileID: 0}
 --- !u!1 &5218479522135616008
 GameObject:
   m_ObjectHideFlags: 0
