@@ -21,12 +21,29 @@ public class TeleporterLaser : MonoBehaviour
         if (OVRInput.Get(OVRInput.RawButton.LIndexTrigger) && teleporterPad != null)
         {
             GameObject player = GameObject.FindWithTag("Player");
-            player.transform.position = new Vector3(
+            CharacterController character = player.GetComponent<CharacterController>();
+            character.center = new Vector3(
                 teleporterPad.transform.position.x,
                 teleporterPad.transform.position.y + 0.1f,
                 teleporterPad.transform.position.z
             );
+            //player.transform.position = new Vector3(
+            //    teleporterPad.transform.position.x,
+            //    teleporterPad.transform.position.y + 0.1f,
+            //    teleporterPad.transform.position.z
+            //);
         }
+
+        // for debugging
+        //if (teleporterPad != null)
+        //{
+        //    GameObject player = GameObject.FindWithTag("Player");
+        //    player.transform.position = new Vector3(
+        //        teleporterPad.transform.position.x,
+        //        teleporterPad.transform.position.y + 1.0f,
+        //        teleporterPad.transform.position.z
+        //    );
+        //}
     }
 
     private void OnTriggerEnter(Collider other)
