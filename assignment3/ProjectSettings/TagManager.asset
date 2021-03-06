@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Target
   - Projectile
+  - Score
+  - Teleporter
   layers:
   - Default
   - TransparentFX

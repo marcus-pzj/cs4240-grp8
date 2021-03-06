@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class ProjectileSpawner : MonoBehaviour
+public class TargetSpawner: MonoBehaviour
 {
-    public GameObject projectilePrefab;
+    public GameObject targetPrefab;
     public float interval;
     public float spawnRadius;
     public float heightOffset;
-    public int maxProjectiles;
+    public int maxTargets;
     public bool isFixedPoint;
 
     // Start is called before the first frame update
@@ -22,17 +22,19 @@ public class ProjectileSpawner : MonoBehaviour
             if (this.transform.childCount < 1)
             {
                 Instantiate(
-                    projectilePrefab,
+                    targetPrefab,
                     new Vector3(0, heightOffset, 0), Quaternion.identity,
                     transform
                 );
             }
-        } else {
-            if (this.transform.childCount < maxProjectiles)
+        }
+        else
+        {
+            if (this.transform.childCount < maxTargets)
             {
                 Vector2 randPos = Random.insideUnitCircle * spawnRadius;
                 Instantiate(
-                    projectilePrefab,
+                    targetPrefab,
                     new Vector3(
                         randPos.x + transform.position.x,
                         heightOffset + transform.position.y,
