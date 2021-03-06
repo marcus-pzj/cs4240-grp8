@@ -60,8 +60,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7481869166687774155, guid: 8d4a79b82952a46638cb6ad2df957dfe, type: 3}
+      propertyPath: MaxDist
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481869166687774155, guid: 8d4a79b82952a46638cb6ad2df957dfe, type: 3}
+      propertyPath: MinDist
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481869166687774155, guid: 8d4a79b82952a46638cb6ad2df957dfe, type: 3}
       propertyPath: MoveSpeed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d4a79b82952a46638cb6ad2df957dfe, type: 3}

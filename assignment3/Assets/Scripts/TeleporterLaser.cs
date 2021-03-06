@@ -4,46 +4,19 @@ using UnityEngine;
 
 public class TeleporterLaser : MonoBehaviour
 {
-    public bool hideDebugLaser;
     private GameObject teleporterPad;
 
-    private void Start()
-    {
-        if (hideDebugLaser)
-        {
-            Renderer renderer = this.gameObject.GetComponent<Renderer>();
-            renderer.material.SetColor("_Color", Color.clear);
-        }
-    }
+    public AudioClip teleportSound;
 
     private void Update()
     {
-        if (OVRInput.Get(OVRInput.RawButton.LIndexTrigger) && teleporterPad != null)
+        if (
+            OVRInput.Get(OVRInput.RawButton.LIndexTrigger) &&
+            teleporterPad != null
+        )
         {
-            GameObject player = GameObject.FindWithTag("Player");
-            CharacterController character = player.GetComponent<CharacterController>();
-            character.center = new Vector3(
-                teleporterPad.transform.position.x,
-                teleporterPad.transform.position.y + 0.1f,
-                teleporterPad.transform.position.z
-            );
-            //player.transform.position = new Vector3(
-            //    teleporterPad.transform.position.x,
-            //    teleporterPad.transform.position.y + 0.1f,
-            //    teleporterPad.transform.position.z
-            //);
+            Teleport();
         }
-
-        // for debugging
-        //if (teleporterPad != null)
-        //{
-        //    GameObject player = GameObject.FindWithTag("Player");
-        //    player.transform.position = new Vector3(
-        //        teleporterPad.transform.position.x,
-        //        teleporterPad.transform.position.y + 1.0f,
-        //        teleporterPad.transform.position.z
-        //    );
-        //}
     }
 
     private void OnTriggerEnter(Collider other)
@@ -51,11 +24,39 @@ public class TeleporterLaser : MonoBehaviour
         if (other.gameObject.CompareTag("Teleporter"))
         {
             teleporterPad = other.gameObject;
+
+            Renderer teleporterRenderer =
+                other.gameObject.GetComponent<Renderer>();
+            teleporterRenderer.material.SetColor("_Color", Color.red);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
+        if (teleporterPad.gameObject.CompareTag("Teleporter"))
+        {
+            Renderer teleporterRenderer =
+                teleporterPad.gameObject.GetComponent<Renderer>();
+            teleporterRenderer.material.SetColor("_Color", Color.white);
+        }
         teleporterPad = null;
+    }
+
+    private void Teleport()
+    {
+        GameObject player = GameObject.FindWithTag("Player");
+        OVRPlayerController OVRC = player.GetComponent<OVRPlayerController>();
+        OVRC.enabled = false;
+        player.transform.position =
+            new Vector3(teleporterPad.transform.position.x,
+                teleporterPad.transform.position.y + 1f,
+                teleporterPad.transform.position.z);
+        OVRC.enabled = true;
+
+        if (teleportSound != null)
+        {
+            GetComponent<AudioSource>().clip = teleportSound;
+            GetComponent<AudioSource>().Play();
+        }
     }
 }

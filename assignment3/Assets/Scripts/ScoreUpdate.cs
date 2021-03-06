@@ -8,29 +8,37 @@ using UnityEngine.UI;
  * initialize: scoreUpdate = GameObject.Find("ScoreObject").GetComponent<ScoreUpdate>();
  * call: scoreUpdate.increaseScore() / decreaseScore();
  */
-
 public class ScoreUpdate : MonoBehaviour
 {
-	Text scoreText;
-	private int score;
+    public AudioClip increaseSound;
+
+    Text scoreText;
+
+    private int score;
 
     // Start is called before the first frame update
     void Start()
     {
-		score = 0;
-		scoreText = GetComponentInChildren<Text>();
-	}
+        score = 0;
+        scoreText = GetComponentInChildren<Text>();
+    }
 
-	public void increaseScore()
-	{
-		score++;
-		scoreText.text = score.ToString();
-	}
+    public void increaseScore()
+    {
+        score++;
+        scoreText.text = score.ToString();
 
-	public void decreaseScore()
-	{
-		score--;
-		GetComponentInChildren<Animator>().SetTrigger("Decrease");
-		scoreText.text = score.ToString();
-	}
+        if (increaseSound != null)
+        {
+            GetComponent<AudioSource>().clip = increaseSound;
+            GetComponent<AudioSource>().Play();
+        }
+    }
+
+    public void decreaseScore()
+    {
+        score--;
+        GetComponentInChildren<Animator>().SetTrigger("Decrease");
+        scoreText.text = score.ToString();
+    }
 }
