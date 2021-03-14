@@ -28,6 +28,7 @@ public class TrackedPrefabManager : MonoBehaviour
     void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs args)
     {
         bool isTracking = false;
+        // TODO: We only want to disable the model when it does not exist in frame
 
         foreach (var trackedImage in args.updated)
         {
