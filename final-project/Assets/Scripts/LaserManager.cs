@@ -70,37 +70,50 @@ public class LaserManager : MonoBehaviour {
         bool intersect = Physics.Raycast(ray, out hit, maxStepDistance);
 
         Vector3 hitPosition = hit.point;
+
+        /**
+        *  TODO:
+        *   Improve stop-gap measure to set to an arbitrary limit of lines allowed to prevent infinite recursive calls
+        */
+
         if(lines.Count < 30) {
             if (!intersect) {
+                // Advance line by another step
                 hitPosition = startPosition + direction * maxStepDistance;
             }
             
             DrawLine(startPosition, hitPosition);
 
             if(intersect) {
-                /**
-                *  TODO:
-                *   Set and retrieve refractive indexes from obstacle's property
-                *   If obstacle is tagged as "Mirror" then reflect only by default
-                *   Currently hardcoded values
-                */
-                float refractiveIndex1 = 1.5f; 
-                float refractiveIndex2 = 1.0f; 
+                float incidentRI, refractedRI;
 
-                if(CheckDirection(hit.transform.gameObject.transform.root.position, hitPosition, hit.normal)) {
-                    refractiveIndex1 = 1.0f; 
-                    refractiveIndex2 = 1.5f; 
+                Transform parentObstacleTransform = hit.transform.gameObject.transform.root;
+                GameObject parentObstacleGO = parentObstacleTransform.gameObject;
+
+                float obstacleRI = parentObstacleGO.GetComponent<Obstacle>().RefractiveIndex;
+                bool isMirror = parentObstacleGO.GetComponent<Obstacle>().isMirror;
+
+                /**
+                *  NOTE:
+                *   Working with assumption that one of the medium is ALWAYS vacuum
+                *   Possible rework needed if obstacle-to-obstacle light path is allowed
+                */
+
+                if(CheckDirection(parentObstacleTransform.position, hitPosition, hit.normal)) {
+                    incidentRI = 1.0f; // RI of vacuum
+                    refractedRI = obstacleRI; 
                 }
 
-                if (Refract(refractiveIndex1, refractiveIndex2, hit.normal, direction) == Vector3.zero) {
+                else {
+                    incidentRI = obstacleRI; 
+                    refractedRI = 1.0f; // RI of vacuum
+                }
+
+                if (isMirror || Refract(incidentRI, refractedRI, hit.normal, direction) == Vector3.zero) {
                     CalcLaserLine(hitPosition, Vector3.Reflect(direction, hit.normal));  // Reflection
-                    Debug.Log("Reflected");
-                    Debug.Log(refractiveIndex1);
                 }
                 else {
-                    CalcLaserLine(hitPosition, Refract(refractiveIndex1, refractiveIndex2, hit.normal, direction));   // Refraction
-                    Debug.Log("Refracted");
-                    Debug.Log(refractiveIndex1);                    
+                    CalcLaserLine(hitPosition, Refract(incidentRI, refractedRI, hit.normal, direction));   // Refraction
                 }
             }
         }
