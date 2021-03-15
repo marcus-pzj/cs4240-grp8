@@ -39,7 +39,9 @@ public class LaserManager : MonoBehaviour
         surfNorm.Normalize(); //should already be normalized, but normalize just to be sure
         incident.Normalize();
 
-        return (RI1/RI2 * Vector3.Cross(surfNorm, Vector3.Cross(-surfNorm, incident)) - surfNorm * Mathf.Sqrt(1 - Vector3.Dot(Vector3.Cross(surfNorm, incident)*(RI1/RI2*RI1/RI2), Vector3.Cross(surfNorm, incident)))).normalized;
+        Vector3 refractedRay = (RI1/RI2 * Vector3.Cross(surfNorm, Vector3.Cross(-surfNorm, incident)) - surfNorm * Mathf.Sqrt(1 - Vector3.Dot(Vector3.Cross(surfNorm, incident)*(RI1/RI2*RI1/RI2), Vector3.Cross(surfNorm, incident)))).normalized;
+        // Debug.Log(refractedRay);
+        return refractedRay;
     }
 
     void RemoveOldLines(){
@@ -78,16 +80,22 @@ public class LaserManager : MonoBehaviour
         DrawLine(startPosition, hitPosition);
 
         if(intersect) {
-            // CalcLaserLine(hitPosition, Vector3.Reflect(direction, hit.normal));  // Reflection
-            CalcLaserLine(hitPosition, Refract(1.0f, 1.5f, hit.normal, direction));   // Refraction
+            if (Refract(1.5f, 1.0f, hit.normal, direction) == Vector3.zero) {
+                CalcLaserLine(hitPosition, Vector3.Reflect(direction, hit.normal));  // Reflection
+            }
+            else {
+                CalcLaserLine(hitPosition, Refract(1.5f, 1.0f, hit.normal, direction));   // Refraction
+            }
         }
     }
 
     void DrawLine(Vector3 startPosition, Vector3 finishPosition) {
         GameObject go = Instantiate(LinePrefab, Vector3.zero, Quaternion.identity);
-        LineRenderer line = go.GetComponent<LineRenderer>();
+        VolumetricLines.VolumetricLineBehavior line = go.GetComponent<VolumetricLines.VolumetricLineBehavior>();
         lines.Add(go);
-        line.SetPosition(0, startPosition);
-        line.SetPosition(1, finishPosition);
+        // line.SetPosition(0, startPosition);
+        // line.SetPosition(1, finishPosition);
+        line.StartPos = startPosition;
+        line.EndPos = finishPosition;
     }
 }
