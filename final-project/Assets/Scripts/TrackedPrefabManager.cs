@@ -8,11 +8,22 @@ using UnityEngine.XR.ARSubsystems;
 [RequireComponent(typeof(ARTrackedImageManager))]
 public class TrackedPrefabManager : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject[] placeablePrefabs;
+
     private ARTrackedImageManager manager;
+    private Dictionary<string, GameObject> spawnedPrefabs = new Dictionary<string, GameObject>();
 
     private void Awake()
     {
         manager = GetComponent<ARTrackedImageManager>();
+
+        foreach (GameObject prefab in placeablePrefabs)
+        {
+            GameObject newPrefab = Instantiate(prefab, Vector3.zero, Quaternion.identity);
+            newPrefab.name = prefab.name;
+            spawnedPrefabs.Add(prefab.name, prefab);
+        }
     }
 
     private void OnEnable()
@@ -27,65 +38,40 @@ public class TrackedPrefabManager : MonoBehaviour
 
     private void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs e)
     {
+
         foreach (var trackedImage in e.added)
         {
-            Debug.Log($"Tracked image detected: {trackedImage.referenceImage.name} with size: {trackedImage.size}");
+            spawnedPrefabs[trackedImage.referenceImage.name].SetActive(true);
         }
 
-        UpdateTrackedImages(e.added);
-        UpdateTrackedImages(e.updated);
-        // FIXME: Try to split these up and only delete when image changed etc
-    }
-
-    private void UpdateTrackedImages(IEnumerable<ARTrackedImage> trackedImages)
-    {
-        // If the same image (ReferenceImageName)
-        //var trackedImage =
-        //    trackedImages.FirstOrDefault(x => x.referenceImage.name == ReferenceImageName);
-        foreach(ARTrackedImage trackedImage in trackedImages)
+        foreach (var trackedImage in e.updated)
         {
-            GameObject gameObject = trackedImage.transform.GetChild(0).gameObject;
-
-            if (trackedImage.trackingState != TrackingState.None)
-            {
-                var trackedImageTransform = trackedImage.transform;
-                transform.SetPositionAndRotation(trackedImageTransform.position, trackedImageTransform.rotation);
-                Debug.Log(trackedImage.referenceImage.name);
-
-                SetObject(trackedImageTransform, true, trackedImage.referenceImage.name, gameObject);
-            }
-
-            if (trackedImage.trackingState == TrackingState.None || trackedImage.trackingState == TrackingState.Limited)
-            {
-                // TODO: Set the object to inactive
-                SetObject(null, false, trackedImage.referenceImage.name, gameObject);
-            }
+            UpdateImage(trackedImage);
+        }
+        foreach (var trackedImage in e.removed)
+        {
+            spawnedPrefabs[trackedImage.name].SetActive(false);
         }
     }
 
-    private void SetObject(
-        Transform trackedImageTransform, bool active, string label,
-        GameObject gameObject
-    )
+    private void UpdateImage(ARTrackedImage trackedImage)
     {
-        //switch (label)
+        string name = trackedImage.referenceImage.name;
+        GameObject prefab = spawnedPrefabs[name];
+
+        if (trackedImage.trackingState == TrackingState.Tracking)
+        {
+            prefab.transform.position = trackedImage.transform.position;
+            prefab.transform.rotation = trackedImage.transform.rotation;
+        }
+        else
+        {
+            prefab.SetActive(false);
+        }
+
+        //foreach (GameObject go in spawnedPrefabs.Values)
         //{
-        //    case "laser_pointer":
-        //        gameObject = laserObject;
-        //        break;
-        //    default:
-        //        gameObject = laserObject;
-        //        break;
+
         //}
-        if (active && trackedImageTransform)
-        {
-            gameObject.SetActive(true);
-            gameObject.transform.SetPositionAndRotation(
-                trackedImageTransform.position, trackedImageTransform.rotation
-            );
-        } else
-        {
-            gameObject.SetActive(false);
-        }
     }
 }
