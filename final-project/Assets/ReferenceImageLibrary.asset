@@ -25,3 +25,13 @@ MonoBehaviour:
     m_SpecifySize: 1
     m_Name: laser_pointer
     m_Texture: {fileID: 2800000, guid: 26c6c86a791274364b2670c454e94644, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 4694487558834767664
+      m_GuidHigh: 7320714660748200363
+    m_SerializedTextureGuid:
+      m_GuidLow: 15296965463773638997
+      m_GuidHigh: 18188191000935305304
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: glass
+    m_Texture: {fileID: 2800000, guid: e1a57155bd0ad4495890b4a5596f69fc, type: 3}
