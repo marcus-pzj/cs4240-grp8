@@ -25,59 +25,73 @@ public class TrackedPrefabManager : MonoBehaviour
         manager.trackedImagesChanged -= OnTrackedImagesChanged;
     }
 
-    void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs args)
+    private void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs e)
     {
-        bool isTracking = false;
-        // TODO: We only want to disable the model when it does not exist in frame
-
-        foreach (var trackedImage in args.updated)
+        foreach (var trackedImage in e.added)
         {
-            Transform model = trackedImage.transform.GetChild(0);
-            string imageName = trackedImage.referenceImage.name;
+            Debug.Log($"Tracked image detected: {trackedImage.referenceImage.name} with size: {trackedImage.size}");
+        }
 
-            model
-                .gameObject
-                .SetActive(trackedImage.trackingState != TrackingState.None &&
-                trackedImage.trackingState != TrackingState.Limited);
+        UpdateTrackedImages(e.added);
+        UpdateTrackedImages(e.updated);
+    }
 
-            if (model.gameObject.activeSelf)
+    private void UpdateTrackedImages(IEnumerable<ARTrackedImage> trackedImages)
+    {
+        // If the same image (ReferenceImageName)
+        //var trackedImage =
+        //    trackedImages.FirstOrDefault(x => x.referenceImage.name == ReferenceImageName);
+        foreach(ARTrackedImage trackedImage in trackedImages)
+        {
+
+            Transform gameObjectTransform = trackedImage.transform;
+            Debug.Log("=================================");
+            foreach (Transform child in trackedImage.transform)
             {
-                //currentImageText.text = "<b>" + trackedImage.referenceImage.name + "</b>";
-                isTracking = true;
+                Debug.Log(child);
+            }
+            Debug.Log("=================================");
+            GameObject gameObject = new GameObject();
+            if (trackedImage.trackingState != TrackingState.None)
+            {
+                var trackedImageTransform = trackedImage.transform;
+                transform.SetPositionAndRotation(trackedImageTransform.position, trackedImageTransform.rotation);
+                Debug.Log(trackedImage.referenceImage.name);
+
+                SetObject(trackedImageTransform, true, trackedImage.referenceImage.name, gameObject);
+            }
+
+            if (trackedImage.trackingState == TrackingState.None || trackedImage.trackingState == TrackingState.Limited)
+            {
+                // TODO: Set the object to inactive
+                SetObject(null, false, trackedImage.referenceImage.name, gameObject);
             }
         }
+    }
 
-        if (!isTracking)
+    private void SetObject(
+        Transform trackedImageTransform, bool active, string label,
+        GameObject gameObject
+    )
+    {
+        //switch (label)
+        //{
+        //    case "laser_pointer":
+        //        gameObject = laserObject;
+        //        break;
+        //    default:
+        //        gameObject = laserObject;
+        //        break;
+        //}
+        if (active && trackedImageTransform)
         {
-            // Spawn some text here
-        }
-
-        foreach (var trackedImage in args.added)
+            gameObject.SetActive(true);
+            gameObject.transform.SetPositionAndRotation(
+                trackedImageTransform.position, trackedImageTransform.rotation
+            );
+        } else
         {
-
-            string imageName = trackedImage.referenceImage.name;
-
-            //if (videoPlayer)
-            //{
-            //    currentImageText.text = "<b>" + imageName + "</b>";
-            //    switch (imageName)
-            //    {
-            //        case "Synergy":
-            //            videoPlayer.clip = videoSynergy;
-            //            break;
-            //        case "EML":
-            //            videoPlayer.clip = videoEML;
-            //            break;
-            //        case "GENUS":
-            //            videoPlayer.clip = videoGENUS;
-            //            break;
-            //    }
-            //}
-        }
-
-        foreach (var trackedImage in args.removed)
-        {
-            // Empty for now
+            gameObject.SetActive(false);
         }
     }
 }
