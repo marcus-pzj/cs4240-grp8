@@ -34,6 +34,7 @@ public class TrackedPrefabManager : MonoBehaviour
 
         UpdateTrackedImages(e.added);
         UpdateTrackedImages(e.updated);
+        // FIXME: Try to split these up and only delete when image changed etc
     }
 
     private void UpdateTrackedImages(IEnumerable<ARTrackedImage> trackedImages)
@@ -43,15 +44,8 @@ public class TrackedPrefabManager : MonoBehaviour
         //    trackedImages.FirstOrDefault(x => x.referenceImage.name == ReferenceImageName);
         foreach(ARTrackedImage trackedImage in trackedImages)
         {
+            GameObject gameObject = trackedImage.transform.GetChild(0).gameObject;
 
-            Transform gameObjectTransform = trackedImage.transform;
-            Debug.Log("=================================");
-            foreach (Transform child in trackedImage.transform)
-            {
-                Debug.Log(child);
-            }
-            Debug.Log("=================================");
-            GameObject gameObject = new GameObject();
             if (trackedImage.trackingState != TrackingState.None)
             {
                 var trackedImageTransform = trackedImage.transform;
