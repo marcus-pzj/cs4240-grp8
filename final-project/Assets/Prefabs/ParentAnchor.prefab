@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 266097015027192551}
   - component: {fileID: 266097015027192550}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: laser_pointer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 7998961671530280901}
   - component: {fileID: 545266776779246552}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -13,6 +13,7 @@ public class LaserManager : MonoBehaviour {
     float maxStepDistance = 20;
 
     public void AddLaser(LaserGun laser) {
+        Debug.Log("Laser added!");
         lasers.Add(laser);
     }
 

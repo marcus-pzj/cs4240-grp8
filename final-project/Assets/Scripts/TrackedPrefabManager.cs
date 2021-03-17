@@ -54,12 +54,6 @@ public class TrackedPrefabManager : MonoBehaviour
     private void UpdatePrefab(string label, Transform trackedImageTransform, bool active)
     {
         // TODO: Find a better way not to manually hardcode this part
-        if (label == "glass")
-        {
-            trackedImageTransform.GetChild(1).gameObject.SetActive(active);
-        } else
-        {
-            trackedImageTransform.GetChild(0).gameObject.SetActive(active);
-        }
+        trackedImageTransform.Find(label).gameObject.SetActive(active);
     }
 }
