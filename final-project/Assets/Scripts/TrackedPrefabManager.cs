@@ -31,7 +31,7 @@ public class TrackedPrefabManager : MonoBehaviour
         foreach (var trackedImage in e.added)
         {
             // Prefab here must have already been preloaded before hand
-            UpdatePrefab(trackedImage.referenceImage.name, trackedImage.transform, false);
+            UpdatePrefab(trackedImage.referenceImage.name, trackedImage.transform, true);
         }
 
         foreach (var trackedImage in e.updated)
