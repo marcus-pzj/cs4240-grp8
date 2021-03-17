@@ -10,9 +10,18 @@ public class TrackedPrefabManager : MonoBehaviour
 {
     private ARTrackedImageManager manager;
 
+    public GameObject laserPointer;
+    public GameObject glass;
+
+    private void Start()
+    {
+        laserPointer = Instantiate(laserPointer, Vector3.zero, Quaternion.identity);
+        glass = Instantiate(glass, Vector3.zero, Quaternion.identity);
+    }
+
     private void Awake()
     {
-        manager = GetComponent<ARTrackedImageManager>();
+        manager = FindObjectOfType<ARTrackedImageManager>();
     }
 
     private void OnEnable()
@@ -39,7 +48,8 @@ public class TrackedPrefabManager : MonoBehaviour
             if (trackedImage.trackingState != TrackingState.Tracking)
             {
                 UpdatePrefab(trackedImage.referenceImage.name, trackedImage.transform, false);
-            } else
+            }
+            else
             {
                 UpdatePrefab(trackedImage.referenceImage.name, trackedImage.transform, true);
             }
@@ -53,7 +63,34 @@ public class TrackedPrefabManager : MonoBehaviour
 
     private void UpdatePrefab(string label, Transform trackedImageTransform, bool active)
     {
-        // TODO: Find a better way not to manually hardcode this part
-        trackedImageTransform.Find(label).gameObject.SetActive(active);
+        if (active)
+        {
+            if (label == "glass")
+            {
+                glass.SetActive(true);
+                glass.transform.SetPositionAndRotation(
+                    trackedImageTransform.position, trackedImageTransform.rotation
+                );
+            }
+            else
+            {
+                laserPointer.SetActive(true);
+                laserPointer.transform.SetPositionAndRotation(
+                    trackedImageTransform.position, trackedImageTransform.rotation
+                );
+            }
+        }
+        else
+        {
+            // nothing for now
+            if (label == "glass")
+            {
+                glass.SetActive(false);
+            }
+            else
+            {
+                laserPointer.SetActive(false);
+            }
+        }
     }
 }

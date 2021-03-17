@@ -245,7 +245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SerializedLibrary: {fileID: 11400000, guid: e48d6e4a35abb48e4838d6533387d36f, type: 2}
   m_MaxNumberOfMovingImages: 5
-  m_TrackedImagePrefab: {fileID: 8635318663341502640, guid: d286b5750bad8417582bca26532a7ddf, type: 3}
+  m_TrackedImagePrefab: {fileID: 4070048423433165899, guid: 0fcb5f85d81474b79bedba6351d1410c, type: 3}
 --- !u!114 &988582504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,6 +258,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c15d0825ce7c74aca829f2c45c5e8cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  laserPointer: {fileID: 7991028756513117691, guid: 261d58a6e8dae4e00b8d7107e7e8f041, type: 3}
+  glass: {fileID: 6818029535657428294, guid: 04eebfa12bded4804a0967509616424c, type: 3}
 --- !u!1 &1303555406
 GameObject:
   m_ObjectHideFlags: 0
