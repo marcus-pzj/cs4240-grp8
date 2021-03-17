@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaserManager
       objectReference: {fileID: 0}
+    - target: {fileID: 496708264541601139, guid: 23cf4a018480e42dca22ad9e536d952e, type: 3}
+      propertyPath: m_TagString
+      value: LaserManager
+      objectReference: {fileID: 0}
     - target: {fileID: 496708264541601148, guid: 23cf4a018480e42dca22ad9e536d952e, type: 3}
       propertyPath: LinePrefab
       value: 

@@ -34,6 +34,15 @@ public class LaserManager : MonoBehaviour {
     *  Vector3 laserRefracted = Refract(1.0f, 1.33f, waterPointNorm, laserForward);
     */
 
+    public void DestroyAllLasers()
+    {
+        foreach (GameObject laser in GameObject.FindGameObjectsWithTag("Laser"))
+        {
+            Destroy(laser);
+        }
+        
+    }
+
     Vector3 Refract(float RI1, float RI2, Vector3 surfNorm, Vector3 incident) {
         surfNorm.Normalize(); //should already be normalized, but normalize just to be sure
         incident.Normalize();

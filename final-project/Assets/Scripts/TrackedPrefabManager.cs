@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
@@ -9,6 +7,7 @@ using UnityEngine.XR.ARSubsystems;
 public class TrackedPrefabManager : MonoBehaviour
 {
     private ARTrackedImageManager manager;
+    private GameObject laserManager;
 
     public GameObject laserPointer;
     public GameObject glass;
@@ -17,6 +16,10 @@ public class TrackedPrefabManager : MonoBehaviour
     {
         laserPointer = Instantiate(laserPointer, Vector3.zero, Quaternion.identity);
         glass = Instantiate(glass, Vector3.zero, Quaternion.identity);
+        laserPointer.SetActive(false);
+        glass.SetActive(false);
+        laserManager = GameObject.FindGameObjectWithTag("LaserManager");
+        laserManager.SetActive(false);
     }
 
     private void Awake()
@@ -39,7 +42,6 @@ public class TrackedPrefabManager : MonoBehaviour
 
         foreach (var trackedImage in e.added)
         {
-            // Prefab here must have already been preloaded before hand
             UpdatePrefab(trackedImage.referenceImage.name, trackedImage.transform, true);
         }
 
@@ -63,34 +65,30 @@ public class TrackedPrefabManager : MonoBehaviour
 
     private void UpdatePrefab(string label, Transform trackedImageTransform, bool active)
     {
-        if (active)
+        if (label == "glass")
         {
-            if (label == "glass")
-            {
-                glass.SetActive(true);
-                glass.transform.SetPositionAndRotation(
-                    trackedImageTransform.position, trackedImageTransform.rotation
-                );
-            }
-            else
-            {
-                laserPointer.SetActive(true);
-                laserPointer.transform.SetPositionAndRotation(
-                    trackedImageTransform.position, trackedImageTransform.rotation
-                );
-            }
+            glass.SetActive(active);
+            glass.transform.SetPositionAndRotation(
+                trackedImageTransform.position, trackedImageTransform.rotation
+            );
         }
         else
         {
-            // nothing for now
-            if (label == "glass")
-            {
-                glass.SetActive(false);
-            }
-            else
-            {
-                laserPointer.SetActive(false);
-            }
+            handleLaserManager(active);
+            laserPointer.SetActive(active);
+            laserPointer.transform.SetPositionAndRotation(
+                trackedImageTransform.position, trackedImageTransform.rotation
+            );
+        }
+
+    }
+
+    private void handleLaserManager(bool active)
+    {
+        laserManager.SetActive(active);
+        if (!active)
+        {
+            laserManager.GetComponent<LaserManager>().DestroyAllLasers();
         }
     }
 }
