@@ -65,11 +65,14 @@ public class TrackedPrefabManager : MonoBehaviour
 
     private void UpdatePrefab(string label, Transform trackedImageTransform, bool active)
     {
+        // Use laser as an "anchor" -> but how do we find the transform and rotation for anchor?
         if (label == "glass")
         {
             glass.SetActive(active);
             glass.transform.SetPositionAndRotation(
-                trackedImageTransform.position, trackedImageTransform.rotation
+                trackedImageTransform.position,
+                //Quaternion.Euler(0, trackedImageTransform.rotation.y, 0)
+                trackedImageTransform.rotation
             );
         }
         else
@@ -77,10 +80,13 @@ public class TrackedPrefabManager : MonoBehaviour
             handleLaserManager(active);
             laserPointer.SetActive(active);
             laserPointer.transform.SetPositionAndRotation(
-                trackedImageTransform.position, trackedImageTransform.rotation
+                //new Vector3(trackedImageTransform.position.x, glass.transform.position.y, trackedImageTransform.position.z),
+                trackedImageTransform.position,
+                //Quaternion.Euler(0, trackedImageTransform.rotation.y, 0)
+                trackedImageTransform.rotation
             );
+            // TODO: We might have to average out the rotation and position
         }
-
     }
 
     private void handleLaserManager(bool active)

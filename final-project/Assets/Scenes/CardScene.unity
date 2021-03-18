@@ -275,7 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserPointer: {fileID: 7991028756513117691, guid: 261d58a6e8dae4e00b8d7107e7e8f041, type: 3}
-  glass: {fileID: 6818029535657428294, guid: 04eebfa12bded4804a0967509616424c, type: 3}
+  glass: {fileID: 6818029535657428294, guid: f3819936351b84c3cbadfd6d5db23de4, type: 3}
 --- !u!1 &1303555406
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +320,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 20
+  far clip plane: 10000
   field of view: 26.991467
   orthographic: 0
   orthographic size: 5

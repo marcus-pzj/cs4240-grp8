@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6386397398594723973}
   - component: {fileID: 7781240957536640868}
   m_Layer: 0
-  m_Name: Plane Sheet Wall
+  m_Name: Mirror
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7781240957536640869}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.57, y: 0.8, z: 6.1644225}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.000001, y: 1.0659658, z: 13.209085}
   m_Children: []
   m_Father: {fileID: 0}

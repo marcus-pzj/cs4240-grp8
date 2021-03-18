@@ -19,19 +19,19 @@ MonoBehaviour:
       m_GuidLow: 5586713416714948995
       m_GuidHigh: 3764179473221009326
     m_SerializedTextureGuid:
-      m_GuidLow: 13007235806286944439
-      m_GuidHigh: 15736312908944395146
-    m_Size: {x: 0.05, y: 0.05}
+      m_GuidLow: 14192665907297619525
+      m_GuidHigh: 8033969824404939242
+    m_Size: {x: 0.06352942, y: 0.09}
     m_SpecifySize: 1
     m_Name: laser_pointer
-    m_Texture: {fileID: 2800000, guid: ef7998b7fc0cb4828a4b0654379d62da, type: 3}
+    m_Texture: {fileID: 2800000, guid: 5c458e457a72c4f6ea21dd4ffd647e6f, type: 3}
   - m_SerializedGuid:
       m_GuidLow: 5082340039797032452
       m_GuidHigh: 12093622482487022474
     m_SerializedTextureGuid:
-      m_GuidLow: 8366045808478192927
-      m_GuidHigh: 4606489644562810904
-    m_Size: {x: 0.05, y: 0.05}
+      m_GuidLow: 1495388701051634308
+      m_GuidHigh: 7344908310976977912
+    m_Size: {x: 0.0645283, y: 0.09}
     m_SpecifySize: 1
     m_Name: glass
-    m_Texture: {fileID: 2800000, guid: 6cfd051f2a56741a1888aeedec89ed3f, type: 3}
+    m_Texture: {fileID: 2800000, guid: c750c284b01914c0f8db989f315bee65, type: 3}
