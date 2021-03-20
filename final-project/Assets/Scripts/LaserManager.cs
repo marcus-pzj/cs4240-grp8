@@ -34,13 +34,10 @@ public class LaserManager : MonoBehaviour {
     *  Vector3 laserRefracted = Refract(1.0f, 1.33f, waterPointNorm, laserForward);
     */
 
-    public void DestroyAllLasers()
-    {
-        foreach (GameObject laser in GameObject.FindGameObjectsWithTag("Laser"))
-        {
+    public void DestroyAllLasers() {
+        foreach (GameObject laser in GameObject.FindGameObjectsWithTag("Laser")) {
             Destroy(laser);
         }
-        
     }
 
     Vector3 Refract(float RI1, float RI2, Vector3 surfNorm, Vector3 incident) {
@@ -48,7 +45,12 @@ public class LaserManager : MonoBehaviour {
         incident.Normalize();
 
         Vector3 refractedRay = (RI1/RI2 * Vector3.Cross(surfNorm, Vector3.Cross(-surfNorm, incident)) - surfNorm * Mathf.Sqrt(1 - Vector3.Dot(Vector3.Cross(surfNorm, incident)*(RI1/RI2*RI1/RI2), Vector3.Cross(surfNorm, incident)))).normalized;
-        
+        // float N_dot_L = Vector3.Dot(surfNorm, incident);
+        // float RI1_over_RI2 = RI1/RI2;
+        // float One_Minus_N_dot_L_squared = 1 - (N_dot_L*N_dot_L);
+        // float subcomponent = Mathf.Sqrt(1 - ((RI1_over_RI2 * RI1_over_RI2) * One_Minus_N_dot_L_squared));
+        // Vector3 refractedRay = (((RI1_over_RI2 * N_dot_L) - subcomponent) * surfNorm) - (RI1_over_RI2 * incident);
+
         return refractedRay;
     }
 
@@ -122,7 +124,9 @@ public class LaserManager : MonoBehaviour {
                     CalcLaserLine(hitPosition, Vector3.Reflect(direction, hit.normal));  // Reflection
                 }
                 else {
-                    CalcLaserLine(hitPosition, Refract(incidentRI, refractedRI, hit.normal, direction));   // Refraction
+                    // Advance the next line start position by a marginally small amount to prevent intra-planar collisions
+                    // You can perceive this as the thickness of the obstacle wall
+                    CalcLaserLine(hitPosition + 0.1f * direction, Refract(incidentRI, refractedRI, hit.normal, direction));   // Refraction
                 }
             }
         }

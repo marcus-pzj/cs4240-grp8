@@ -71,7 +71,6 @@ public class TrackedPrefabManager : MonoBehaviour
             glass.SetActive(active);
             glass.transform.SetPositionAndRotation(
                 trackedImageTransform.position,
-                //Quaternion.Euler(0, trackedImageTransform.rotation.y, 0)
                 trackedImageTransform.rotation
             );
         }
@@ -80,12 +79,12 @@ public class TrackedPrefabManager : MonoBehaviour
             handleLaserManager(active);
             laserPointer.SetActive(active);
             laserPointer.transform.SetPositionAndRotation(
-                //new Vector3(trackedImageTransform.position.x, glass.transform.position.y, trackedImageTransform.position.z),
-                trackedImageTransform.position,
-                //Quaternion.Euler(0, trackedImageTransform.rotation.y, 0)
+                new Vector3(
+                    trackedImageTransform.position.x, glass.transform.position.y + 0.5f, trackedImageTransform.position.z
+                ),
+                //trackedImageTransform.position,
                 trackedImageTransform.rotation
             );
-            // TODO: We might have to average out the rotation and position
         }
     }
 
