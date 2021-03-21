@@ -17,4 +17,8 @@ public class Obstacle : MonoBehaviour {
     void Update() {
         
     }
+
+	public void changeRefractiveIndex(float rIndex) {
+		RefractiveIndex = rIndex;
+	}
 }
