@@ -142,6 +142,14 @@ PrefabInstance:
       propertyPath: LinePrefab
       value: 
       objectReference: {fileID: 1183857265965406732, guid: 6631adb42b21b4413884fe63cea94fb2, type: 3}
+    - target: {fileID: 496708264541601148, guid: 23cf4a018480e42dca22ad9e536d952e, type: 3}
+      propertyPath: TextPrefab
+      value: 
+      objectReference: {fileID: 5091532300920981857, guid: 9f8e4220931f74d1a89c3b6c314e395a, type: 3}
+    - target: {fileID: 496708264541601148, guid: 23cf4a018480e42dca22ad9e536d952e, type: 3}
+      propertyPath: NormalPrefab
+      value: 
+      objectReference: {fileID: 8020568705139670785, guid: 89fb7b220a4bc4a7aacde2182e13a658, type: 3}
     - target: {fileID: 496708264541601149, guid: 23cf4a018480e42dca22ad9e536d952e, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -291,7 +299,7 @@ GameObject:
   - component: {fileID: 1303555408}
   m_Layer: 0
   m_Name: AR Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -409,7 +417,7 @@ GameObject:
   - component: {fileID: 1923604529}
   m_Layer: 0
   m_Name: AR Session
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

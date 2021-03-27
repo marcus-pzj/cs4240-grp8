@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
+using TMPro;
 
 public class LaserManager : MonoBehaviour {
     static public LaserManager instance;
 
     public GameObject LinePrefab;
+    public GameObject NormalPrefab;
+    public TextMeshPro TextPrefab;
 
     List<LaserGun> lasers = new List<LaserGun>();
     List<GameObject> lines = new List<GameObject>();
@@ -75,6 +79,15 @@ public class LaserManager : MonoBehaviour {
         }
     }
 
+    float GetAngle(Vector3 line1, Vector3 line2) {
+        return (float) Math.Round(Vector3.Angle(-line1, line2), 1);
+    }
+
+    // unused at the moment, to get distance between 2 vectors
+    void GetDistance(Vector3 v1, Vector3 v2) {
+        Debug.Log(Vector3.Distance(v1, v2));
+    }
+
     void CalcLaserLine(Vector3 startPosition, Vector3 direction) {
         RaycastHit hit;
         Ray ray = new Ray(startPosition, direction);
@@ -94,6 +107,7 @@ public class LaserManager : MonoBehaviour {
             }
             
             DrawLine(startPosition, hitPosition);
+            GameObject currLine = lines[lines.Count -1]; // Get most recent line
 
             if(intersect) {
                 float incidentRI, refractedRI;
@@ -122,11 +136,16 @@ public class LaserManager : MonoBehaviour {
 
                 if (isMirror || Refract(incidentRI, refractedRI, hit.normal, direction) == Vector3.zero) {
                     CalcLaserLine(hitPosition, Vector3.Reflect(direction, hit.normal));  // Reflection
+                    DrawNormal(currLine, hitPosition, hitPosition + 0.5f*hit.normal);
+                    DrawAngle(currLine, hitPosition + 1.0f*hit.normal, GetAngle(direction, hit.normal)); // for incident ray
                 }
                 else {
                     // Advance the next line start position by a marginally small amount to prevent intra-planar collisions
                     // You can perceive this as the thickness of the obstacle wall
                     CalcLaserLine(hitPosition + 0.1f * direction, Refract(incidentRI, refractedRI, hit.normal, direction));   // Refraction
+                    DrawNormal(currLine, hitPosition - 0.5f*hit.normal, hitPosition + 0.5f*hit.normal);
+                    DrawAngle(currLine, hitPosition + 1.0f*hit.normal, GetAngle(direction, hit.normal)); // for incident ray
+                    DrawAngle(currLine, hitPosition - hit.normal, GetAngle(Refract(incidentRI, refractedRI, hit.normal, direction), hit.normal)); // for refracted ray
                 }
             }
         }
@@ -138,6 +157,24 @@ public class LaserManager : MonoBehaviour {
         lines.Add(go);
         line.StartPos = startPosition;
         line.EndPos = finishPosition;
+    }
+
+    // draws a normal as a child of ray based on the start and finish vectors
+    void DrawNormal(GameObject parentRay, Vector3 startPosition, Vector3 finishPosition) {
+        GameObject go = Instantiate(NormalPrefab, Vector3.zero, Quaternion.identity);
+        VolumetricLines.VolumetricLineBehavior line = go.GetComponent<VolumetricLines.VolumetricLineBehavior>();
+        line.StartPos = startPosition;
+        line.EndPos = finishPosition;
+        go.transform.parent = parentRay.transform;
+    }
+
+    // creates a TMP object as a child of ray at position 
+    void DrawAngle(GameObject parentRay, Vector3 position, float angle) {
+        GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
+        position = position + new Vector3(0.5f,0,0);
+        TextMeshPro ang = Instantiate(TextPrefab, position, camera.transform.rotation);
+        ang.text = angle.ToString() + "°";
+        ang.transform.parent = parentRay.transform;
     }
 
     bool CheckDirection (Vector3 obstaclePosition, Vector3 hitPosition, Vector3 hitNormal) {

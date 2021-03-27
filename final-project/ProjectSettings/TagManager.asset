@@ -6,6 +6,7 @@ TagManager:
   tags:
   - LaserManager
   - Laser
+  - UIElement
   layers:
   - Default
   - TransparentFX
