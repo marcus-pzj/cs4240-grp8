@@ -80,7 +80,7 @@ public class LaserManager : MonoBehaviour {
     }
 
     float GetAngle(Vector3 line1, Vector3 line2) {
-        return (float) Math.Round(Vector3.Angle(-line1, line2), 1);
+        return (float) Math.Round(Vector3.Angle(-line1, line2), 0); // number represents decimal places
     }
 
     // unused at the moment, to get distance between 2 vectors
