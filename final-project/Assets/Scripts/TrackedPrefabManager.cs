@@ -11,13 +11,18 @@ public class TrackedPrefabManager : MonoBehaviour
 
     public GameObject laserPointer;
     public GameObject glass;
+    public GameObject mirror;
 
     private void Start()
     {
         laserPointer = Instantiate(laserPointer, Vector3.zero, Quaternion.identity);
         glass = Instantiate(glass, Vector3.zero, Quaternion.identity);
+        mirror = Instantiate(mirror, Vector3.zero, Quaternion.identity);
+
         laserPointer.SetActive(false);
         glass.SetActive(false);
+        mirror.SetActive(false);
+
         laserManager = GameObject.FindGameObjectWithTag("LaserManager");
         laserManager.SetActive(false);
     }
@@ -65,7 +70,6 @@ public class TrackedPrefabManager : MonoBehaviour
 
     private void UpdatePrefab(string label, Transform trackedImageTransform, bool active)
     {
-        // Use laser as an "anchor" -> but how do we find the transform and rotation for anchor?
         if (label == "glass")
         {
             glass.SetActive(active);
@@ -74,7 +78,7 @@ public class TrackedPrefabManager : MonoBehaviour
                 trackedImageTransform.rotation
             );
         }
-        else
+        else if (label == "laser_pointer")
         {
             handleLaserManager(active);
             laserPointer.SetActive(active);
@@ -82,7 +86,14 @@ public class TrackedPrefabManager : MonoBehaviour
                 new Vector3(
                     trackedImageTransform.position.x, glass.transform.position.y, trackedImageTransform.position.z
                 ),
-                //trackedImageTransform.position,
+                trackedImageTransform.rotation
+            );
+        }
+        else if (label == "mirror")
+        {
+            mirror.SetActive(active);
+            mirror.transform.SetPositionAndRotation(
+                trackedImageTransform.position,
                 trackedImageTransform.rotation
             );
         }

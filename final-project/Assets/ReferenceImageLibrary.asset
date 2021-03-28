@@ -35,3 +35,13 @@ MonoBehaviour:
     m_SpecifySize: 1
     m_Name: glass
     m_Texture: {fileID: 2800000, guid: d3b21a7ce109149d392ceb4a51ea7ac3, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 4736282367747624705
+      m_GuidHigh: 7945079026043486606
+    m_SerializedTextureGuid:
+      m_GuidLow: 16489939905542983803
+      m_GuidHigh: 12197651733150396731
+    m_Size: {x: 0.06, y: 0.06}
+    m_SpecifySize: 1
+    m_Name: mirror
+    m_Texture: {fileID: 2800000, guid: 056d907b08fae4d83b715b18a0c346a9, type: 3}
