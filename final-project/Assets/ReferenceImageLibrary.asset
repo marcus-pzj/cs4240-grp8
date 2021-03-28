@@ -29,12 +29,12 @@ MonoBehaviour:
       m_GuidLow: 5082340039797032452
       m_GuidHigh: 12093622482487022474
     m_SerializedTextureGuid:
-      m_GuidLow: 1485590884424751740
-      m_GuidHigh: 14085828419424824377
+      m_GuidLow: 316228991200276257
+      m_GuidHigh: 11320330642241797675
     m_Size: {x: 0.06, y: 0.06}
     m_SpecifySize: 1
     m_Name: glass
-    m_Texture: {fileID: 2800000, guid: d3b21a7ce109149d392ceb4a51ea7ac3, type: 3}
+    m_Texture: {fileID: 0}
   - m_SerializedGuid:
       m_GuidLow: 4736282367747624705
       m_GuidHigh: 7945079026043486606
