@@ -284,6 +284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laserPointer: {fileID: 7991028756513117691, guid: 261d58a6e8dae4e00b8d7107e7e8f041, type: 3}
   glass: {fileID: 6818029535657428294, guid: f3819936351b84c3cbadfd6d5db23de4, type: 3}
+  mirror: {fileID: 7781240957536640869, guid: aab736babafb1496dba1b8cd619f8e50, type: 3}
 --- !u!1 &1303555406
 GameObject:
   m_ObjectHideFlags: 0
