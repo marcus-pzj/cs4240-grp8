@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
@@ -13,11 +14,17 @@ public class TrackedPrefabManager : MonoBehaviour
     public GameObject glass;
     public GameObject mirror;
 
+    private Dictionary<string, GameObject> gameObjectsDict = new Dictionary<string, GameObject>();
+
     private void Start()
     {
         laserPointer = Instantiate(laserPointer, Vector3.zero, Quaternion.identity);
         glass = Instantiate(glass, Vector3.zero, Quaternion.identity);
         mirror = Instantiate(mirror, Vector3.zero, Quaternion.identity);
+
+        gameObjectsDict.Add("mirror", mirror);
+        gameObjectsDict.Add("glass", glass);
+        gameObjectsDict.Add("laser_pointer", laserPointer);
 
         laserPointer.SetActive(false);
         glass.SetActive(false);
@@ -70,29 +77,20 @@ public class TrackedPrefabManager : MonoBehaviour
 
     private void UpdatePrefab(string label, Transform trackedImageTransform, bool active)
     {
-        if (label == "glass")
+        if (label == "laser_pointer")
         {
-            glass.SetActive(active);
-            glass.transform.SetPositionAndRotation(
+            GameObject laserPointer = gameObjectsDict[label];
+            handleLaserManager(active);
+            laserPointer.SetActive(active);
+            laserPointer.transform.SetPositionAndRotation(
                 trackedImageTransform.position,
                 trackedImageTransform.rotation
             );
         }
-        else if (label == "laser_pointer")
-        {
-            handleLaserManager(active);
-            laserPointer.SetActive(active);
-            laserPointer.transform.SetPositionAndRotation(
-                new Vector3(
-                    trackedImageTransform.position.x, glass.transform.position.y, trackedImageTransform.position.z
-                ),
-                trackedImageTransform.rotation
-            );
-        }
-        else if (label == "mirror")
-        {
-            mirror.SetActive(active);
-            mirror.transform.SetPositionAndRotation(
+        else {
+            GameObject item = gameObjectsDict[label];
+            item.SetActive(active);
+            item.transform.SetPositionAndRotation(
                 trackedImageTransform.position,
                 trackedImageTransform.rotation
             );
