@@ -83,9 +83,7 @@ public class TrackedPrefabManager : MonoBehaviour
             handleLaserManager(active);
             laserPointer.SetActive(active);
             laserPointer.transform.SetPositionAndRotation(
-                new Vector3(
-                    trackedImageTransform.position.x, glass.transform.position.y, trackedImageTransform.position.z
-                ),
+                trackedImageTransform.position,
                 trackedImageTransform.rotation
             );
         } else {
