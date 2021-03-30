@@ -19,18 +19,18 @@ MonoBehaviour:
       m_GuidLow: 5586713416714948995
       m_GuidHigh: 3764179473221009326
     m_SerializedTextureGuid:
-      m_GuidLow: 289976106933653190
-      m_GuidHigh: 16238449981474208920
+      m_GuidLow: 1462151137483965349
+      m_GuidHigh: 4955023065098580090
     m_Size: {x: 0.06, y: 0.06}
     m_SpecifySize: 1
     m_Name: laser_pointer
-    m_Texture: {fileID: 2800000, guid: 9f218ec633bb040698fcb72039905ae1, type: 3}
+    m_Texture: {fileID: 2800000, guid: 75aa43a59ab6144a7a70119139c7c344, type: 3}
   - m_SerializedGuid:
       m_GuidLow: 5082340039797032452
       m_GuidHigh: 12093622482487022474
     m_SerializedTextureGuid:
-      m_GuidLow: 316228991200276257
-      m_GuidHigh: 11320330642241797675
+      m_GuidLow: 2606333522362977307
+      m_GuidHigh: 8993185975623998666
     m_Size: {x: 0.06, y: 0.06}
     m_SpecifySize: 1
     m_Name: glass
@@ -39,9 +39,9 @@ MonoBehaviour:
       m_GuidLow: 4736282367747624705
       m_GuidHigh: 7945079026043486606
     m_SerializedTextureGuid:
-      m_GuidLow: 16489939905542983803
-      m_GuidHigh: 12197651733150396731
+      m_GuidLow: 6104079827508689412
+      m_GuidHigh: 6848123923850677210
     m_Size: {x: 0.06, y: 0.06}
     m_SpecifySize: 1
     m_Name: mirror
-    m_Texture: {fileID: 2800000, guid: 056d907b08fae4d83b715b18a0c346a9, type: 3}
+    m_Texture: {fileID: 2800000, guid: 27487a040c4354b6da4bf9026d6c095f, type: 3}

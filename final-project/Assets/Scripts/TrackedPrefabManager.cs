@@ -86,7 +86,8 @@ public class TrackedPrefabManager : MonoBehaviour
                 trackedImageTransform.position,
                 trackedImageTransform.rotation
             );
-        } else {
+        }
+        else {
             GameObject item = gameObjectsDict[label];
             item.SetActive(active);
             item.transform.SetPositionAndRotation(
