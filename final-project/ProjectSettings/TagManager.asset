@@ -7,6 +7,8 @@ TagManager:
   - LaserManager
   - Laser
   - UIElement
+  - Detector
+  - Glass
   layers:
   - Default
   - TransparentFX
