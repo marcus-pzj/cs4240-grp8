@@ -9,6 +9,7 @@ TagManager:
   - UIElement
   - Detector
   - Glass
+  - Target
   layers:
   - Default
   - TransparentFX
