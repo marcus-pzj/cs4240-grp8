@@ -6,22 +6,26 @@ public class StateManager : MonoBehaviour
 {
     public GameObject detector;
     public GameObject targetDetector;
+    public float detectorDistance = 5;
 
+    private bool isTargetHit = false;
+    private bool isGlassDetected = false;
+    private bool isTargetDetected = false;
     private GameObject[] glassBlocks;
     private GameObject target;
     private GameObject laserManager;
 
-    public float detectorDistance = 5;
-
-    private void Start()
-    {
-        laserManager = GameObject.FindGameObjectWithTag("LaserManager");
-    }
 
     void Update()
     {
         glassBlocks = GameObject.FindGameObjectsWithTag("Glass");
         target = GameObject.FindGameObjectWithTag("Target");
+        laserManager = GameObject.FindGameObjectWithTag("LaserManager");
+
+        // Game states
+        isTargetDetected = false;
+        isGlassDetected = false;
+        isTargetHit = false;
 
         if (detector)
         {
@@ -36,6 +40,7 @@ public class StateManager : MonoBehaviour
                     cubeMaterial.SetColor(
                         "_Color", Color.green
                     );
+                    isGlassDetected = true;
                     break;
                 }
             }
@@ -52,10 +57,11 @@ public class StateManager : MonoBehaviour
                 cubeMaterial.SetColor(
                     "_Color", Color.green
                 );
+                isTargetDetected = true;
             }
         }
 
-        if (target)
+        if (target && laserManager)
         {
             Material cubeMaterial = target.GetComponent<MeshRenderer>().material;
             cubeMaterial.SetColor("_Color", Color.white);
@@ -63,7 +69,13 @@ public class StateManager : MonoBehaviour
             if (laserManager.GetComponent<LaserManager>().IsTargetHit())
             {
                 cubeMaterial.SetColor("_Color", Color.red);
+                isTargetHit = true;
             }
         }
+    }
+
+    public bool isObjectiveMet()
+    {
+        return isTargetDetected && isTargetHit && isGlassDetected;
     }
 }

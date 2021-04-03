@@ -289,6 +289,7 @@ MonoBehaviour:
   laserPointer: {fileID: 3837001271426707673, guid: b5d01eca3db584f5cbce24cfa5ce7afb, type: 3}
   glass: {fileID: 1376250539987480902, guid: 50f17085ba8b04809b584f9e62974c55, type: 3}
   mirror: {fileID: 7781240957536640869, guid: aab736babafb1496dba1b8cd619f8e50, type: 3}
+  target: {fileID: 6835715955313740642, guid: 7d5aa7e48edb9471e8edc97191b12cd5, type: 3}
 --- !u!114 &1047208980
 MonoBehaviour:
   m_ObjectHideFlags: 0

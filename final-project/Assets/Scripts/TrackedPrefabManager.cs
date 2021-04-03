@@ -14,6 +14,7 @@ public class TrackedPrefabManager : MonoBehaviour
     public GameObject laserPointer;
     public GameObject glass;
     public GameObject mirror;
+    public GameObject target;
 
     private Dictionary<string, GameObject> gameObjectsDict = new Dictionary<string, GameObject>();
 
@@ -22,14 +23,17 @@ public class TrackedPrefabManager : MonoBehaviour
         laserPointer = Instantiate(laserPointer, Vector3.zero, Quaternion.identity);
         glass = Instantiate(glass, Vector3.zero, Quaternion.identity);
         mirror = Instantiate(mirror, Vector3.zero, Quaternion.identity);
+        target = Instantiate(target, Vector3.zero, Quaternion.identity);
 
         gameObjectsDict.Add("mirror", mirror);
         gameObjectsDict.Add("glass", glass);
         gameObjectsDict.Add("laser_pointer", laserPointer);
+        gameObjectsDict.Add("target", target);
 
         laserPointer.SetActive(false);
         glass.SetActive(false);
         mirror.SetActive(false);
+        target.SetActive(false);
 
         laserManager = GameObject.FindGameObjectWithTag("LaserManager");
         laserManager.SetActive(false);
@@ -78,6 +82,7 @@ public class TrackedPrefabManager : MonoBehaviour
 
     private void UpdatePrefab(string label, Transform trackedImageTransform, bool active)
     {
+        Debug.Log(label);
         if (label == "laser_pointer")
         {
             GameObject laserPointer = gameObjectsDict[label];
