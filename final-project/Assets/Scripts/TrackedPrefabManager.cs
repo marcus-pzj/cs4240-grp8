@@ -9,6 +9,7 @@ public class TrackedPrefabManager : MonoBehaviour
 {
     private ARTrackedImageManager manager;
     private GameObject laserManager;
+    private bool anchorOnLaser;
 
     public GameObject laserPointer;
     public GameObject glass;
@@ -86,14 +87,26 @@ public class TrackedPrefabManager : MonoBehaviour
                 trackedImageTransform.position,
                 trackedImageTransform.rotation
             );
+            anchorOnLaser = active;
         }
         else {
             GameObject item = gameObjectsDict[label];
             item.SetActive(active);
-            item.transform.SetPositionAndRotation(
-                trackedImageTransform.position,
-                trackedImageTransform.rotation
-            );
+            float yVal = laserPointer.transform.position.y - 1;
+            if (anchorOnLaser)
+            {
+                item.transform.SetPositionAndRotation(
+                    new Vector3(trackedImageTransform.position.x, yVal, trackedImageTransform.position.z),
+                    trackedImageTransform.rotation
+                );
+
+            } else
+            {
+                item.transform.SetPositionAndRotation(
+                    trackedImageTransform.position,
+                    trackedImageTransform.rotation
+                );
+            }
         }
     }
 

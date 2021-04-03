@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class StateManager : MonoBehaviour
 {
-    private GameObject detector;
-    private GameObject target;
+    public GameObject detector;
+    public GameObject targetDetector;
+
     private GameObject[] glassBlocks;
+    private GameObject target;
+    private GameObject laserManager;
 
     public float detectorDistance = 5;
 
+    private void Start()
+    {
+        laserManager = GameObject.FindGameObjectWithTag("LaserManager");
+    }
+
     void Update()
     {
-        detector = GameObject.FindGameObjectWithTag("Detector");
         glassBlocks = GameObject.FindGameObjectsWithTag("Glass");
         target = GameObject.FindGameObjectWithTag("Target");
 
@@ -24,7 +31,8 @@ public class StateManager : MonoBehaviour
             for (int i = 0; i < glassBlocks.Length; i++)
             {
                 Transform glassBlockTransform = glassBlocks[i].transform;
-                if (Vector3.Distance(glassBlockTransform.position, detector.transform.position) < detectorDistance) {
+                if (Vector3.Distance(glassBlockTransform.position, detector.transform.position) < detectorDistance)
+                {
                     cubeMaterial.SetColor(
                         "_Color", Color.green
                     );
@@ -33,5 +41,29 @@ public class StateManager : MonoBehaviour
             }
         }
 
+        if (targetDetector)
+        {
+            Material cubeMaterial = targetDetector.GetComponent<MeshRenderer>().material;
+            cubeMaterial.SetColor("_Color", Color.white);
+
+            Transform targetTransform = target.transform;
+            if (Vector3.Distance(targetTransform.position, targetDetector.transform.position) < detectorDistance)
+            {
+                cubeMaterial.SetColor(
+                    "_Color", Color.green
+                );
+            }
+        }
+
+        if (target)
+        {
+            Material cubeMaterial = target.GetComponent<MeshRenderer>().material;
+            cubeMaterial.SetColor("_Color", Color.white);
+            Debug.Log(laserManager.GetComponent<LaserManager>().IsTargetHit());
+            if (laserManager.GetComponent<LaserManager>().IsTargetHit())
+            {
+                cubeMaterial.SetColor("_Color", Color.red);
+            }
+        }
     }
 }

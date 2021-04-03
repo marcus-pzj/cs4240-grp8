@@ -79,7 +79,8 @@ public class LaserManager : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {   
+    void Update() {
+        targetHit = false;
         RemoveOldLines();
         foreach (LaserGun laser in lasers) {
             CalcLaserLine(laser.transform.position + laser.transform.forward*0.6f, laser.transform.forward);
@@ -125,9 +126,6 @@ public class LaserManager : MonoBehaviour {
                 if (parentObstacleGO.tag == "Target")
                 {
                     targetHit = true;
-                } else
-                {
-                    targetHit = false;
                 }
 
                 float obstacleRI = parentObstacleGO.GetComponent<Obstacle>().RefractiveIndex;
