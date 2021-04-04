@@ -82,7 +82,6 @@ public class TrackedPrefabManager : MonoBehaviour
 
     private void UpdatePrefab(string label, Transform trackedImageTransform, bool active)
     {
-        Debug.Log(label);
         if (label == "laser_pointer")
         {
             GameObject laserPointer = gameObjectsDict[label];
