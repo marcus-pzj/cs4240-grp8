@@ -2,47 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TIRStateManager : MonoBehaviour
+public class ReflectionStateManager : MonoBehaviour
 {
     public GameObject detector;
     public GameObject targetDetector;
     public float detectorDistance = 5;
 
     private bool isTargetHit = false;
-    private bool isGlassDetected = false;
+    private bool isMirrorDetected = false;
     private bool isTargetDetected = false;
-    private GameObject[] glassBlocks;
+    private GameObject mirror;
     private GameObject target;
     private GameObject laserManager;
 
 
     void Update()
     {
-        glassBlocks = GameObject.FindGameObjectsWithTag("Glass");
+        mirror = GameObject.FindGameObjectWithTag("Mirror");
         target = GameObject.FindGameObjectWithTag("Target");
         laserManager = GameObject.FindGameObjectWithTag("LaserManager");
 
         // Game states
         isTargetDetected = false;
-        isGlassDetected = false;
+        isMirrorDetected = false;
         isTargetHit = false;
 
-        if (detector)
+        if (detector && mirror)
         {
             Material cubeMaterial = detector.GetComponent<MeshRenderer>().material;
             cubeMaterial.SetColor("_Color", Color.white);
-
-            for (int i = 0; i < glassBlocks.Length; i++)
+            Transform mirrorTransform = mirror.transform;
+            if (Vector3.Distance(mirrorTransform.position, detector.transform.position) < detectorDistance)
             {
-                Transform glassBlockTransform = glassBlocks[i].transform;
-                if (Vector3.Distance(glassBlockTransform.position, detector.transform.position) < detectorDistance)
-                {
-                    cubeMaterial.SetColor(
-                        "_Color", Color.green
-                    );
-                    isGlassDetected = true;
-                    break;
-                }
+                cubeMaterial.SetColor(
+                    "_Color", Color.green
+                );
+                isMirrorDetected = true;
             }
         }
 
@@ -75,6 +70,6 @@ public class TIRStateManager : MonoBehaviour
 
     public bool isObjectiveMet()
     {
-        return isTargetDetected && isTargetHit && isGlassDetected;
+        return isTargetDetected && isTargetHit && isMirrorDetected;
     }
 }
