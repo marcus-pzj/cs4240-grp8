@@ -152,7 +152,7 @@ PrefabInstance:
       objectReference: {fileID: 8020568705139670785, guid: 89fb7b220a4bc4a7aacde2182e13a658, type: 3}
     - target: {fileID: 496708264541601149, guid: 23cf4a018480e42dca22ad9e536d952e, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 496708264541601149, guid: 23cf4a018480e42dca22ad9e536d952e, type: 3}
       propertyPath: m_LocalScale.x
@@ -285,6 +285,7 @@ MonoBehaviour:
   laserPointer: {fileID: 7991028756513117691, guid: 261d58a6e8dae4e00b8d7107e7e8f041, type: 3}
   glass: {fileID: 1376250539987480902, guid: 50f17085ba8b04809b584f9e62974c55, type: 3}
   mirror: {fileID: 7781240957536640869, guid: aab736babafb1496dba1b8cd619f8e50, type: 3}
+  target: {fileID: 6835715955313740642, guid: 7d5aa7e48edb9471e8edc97191b12cd5, type: 3}
 --- !u!1 &1303555406
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,5 +463,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
