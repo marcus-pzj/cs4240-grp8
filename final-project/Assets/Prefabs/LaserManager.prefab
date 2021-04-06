@@ -44,3 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LinePrefab: {fileID: 650180002791945618, guid: 8feb998bd3502430a8db2ed6b856b357, type: 3}
+  NormalPrefab: {fileID: 0}
+  TextPrefab: {fileID: 0}
+  wavelength: 1
