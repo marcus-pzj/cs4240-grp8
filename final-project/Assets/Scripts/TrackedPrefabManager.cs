@@ -9,10 +9,12 @@ public class TrackedPrefabManager : MonoBehaviour
 {
     private ARTrackedImageManager manager;
     private GameObject laserManager;
+    private bool anchorOnLaser;
 
     public GameObject laserPointer;
     public GameObject glass;
     public GameObject mirror;
+    public GameObject target;
 
     private Dictionary<string, GameObject> gameObjectsDict = new Dictionary<string, GameObject>();
 
@@ -21,14 +23,17 @@ public class TrackedPrefabManager : MonoBehaviour
         laserPointer = Instantiate(laserPointer, Vector3.zero, Quaternion.identity);
         glass = Instantiate(glass, Vector3.zero, Quaternion.identity);
         mirror = Instantiate(mirror, Vector3.zero, Quaternion.identity);
+        target = Instantiate(target, Vector3.zero, Quaternion.identity);
 
         gameObjectsDict.Add("mirror", mirror);
         gameObjectsDict.Add("glass", glass);
         gameObjectsDict.Add("laser_pointer", laserPointer);
+        gameObjectsDict.Add("target", target);
 
         laserPointer.SetActive(false);
         glass.SetActive(false);
         mirror.SetActive(false);
+        target.SetActive(false);
 
         laserManager = GameObject.FindGameObjectWithTag("LaserManager");
         laserManager.SetActive(false);
@@ -86,14 +91,26 @@ public class TrackedPrefabManager : MonoBehaviour
                 trackedImageTransform.position,
                 trackedImageTransform.rotation
             );
+            anchorOnLaser = active;
         }
         else {
             GameObject item = gameObjectsDict[label];
             item.SetActive(active);
-            item.transform.SetPositionAndRotation(
-                trackedImageTransform.position,
-                trackedImageTransform.rotation
-            );
+            float yVal = laserPointer.transform.position.y - 1;
+            if (anchorOnLaser)
+            {
+                item.transform.SetPositionAndRotation(
+                    new Vector3(trackedImageTransform.position.x, yVal, trackedImageTransform.position.z),
+                    trackedImageTransform.rotation
+                );
+
+            } else
+            {
+                item.transform.SetPositionAndRotation(
+                    trackedImageTransform.position,
+                    trackedImageTransform.rotation
+                );
+            }
         }
     }
 

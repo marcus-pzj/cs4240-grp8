@@ -11,6 +11,8 @@ public class LaserManager : MonoBehaviour {
     public GameObject NormalPrefab;
     public TextMeshPro TextPrefab;
 
+    private bool targetHit = false;
+
     List<LaserGun> lasers = new List<LaserGun>();
     List<GameObject> lines = new List<GameObject>();
 
@@ -22,6 +24,11 @@ public class LaserManager : MonoBehaviour {
 
     public void RemoveLaser(LaserGun laser) {
         lasers.Remove(laser);
+    }
+
+    public bool IsTargetHit()
+    {
+        return targetHit;
     }
 
     /**
@@ -72,7 +79,8 @@ public class LaserManager : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {   
+    void Update() {
+        targetHit = false;
         RemoveOldLines();
         foreach (LaserGun laser in lasers) {
             CalcLaserLine(laser.transform.position + laser.transform.forward*0.6f, laser.transform.forward);
@@ -114,6 +122,11 @@ public class LaserManager : MonoBehaviour {
 
                 Transform parentObstacleTransform = hit.transform.gameObject.transform.root;
                 GameObject parentObstacleGO = parentObstacleTransform.gameObject;
+
+                if (parentObstacleGO.tag == "Target")
+                {
+                    targetHit = true;
+                }
 
                 float obstacleRI = parentObstacleGO.GetComponent<Obstacle>().RefractiveIndex;
                 bool isMirror = parentObstacleGO.GetComponent<Obstacle>().isMirror;

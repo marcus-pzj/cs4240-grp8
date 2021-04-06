@@ -39,9 +39,19 @@ MonoBehaviour:
       m_GuidLow: 4736282367747624705
       m_GuidHigh: 7945079026043486606
     m_SerializedTextureGuid:
-      m_GuidLow: 6104079827508689412
-      m_GuidHigh: 6848123923850677210
+      m_GuidLow: 16489939905542983803
+      m_GuidHigh: 12197651733150396731
     m_Size: {x: 0.06, y: 0.06}
     m_SpecifySize: 1
     m_Name: mirror
-    m_Texture: {fileID: 2800000, guid: 27487a040c4354b6da4bf9026d6c095f, type: 3}
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5158863437105640424
+      m_GuidHigh: 17313828601897526157
+    m_SerializedTextureGuid:
+      m_GuidLow: 2615244695879113174
+      m_GuidHigh: 123945830295432555
+    m_Size: {x: 0.06, y: 0.06}
+    m_SpecifySize: 1
+    m_Name: target
+    m_Texture: {fileID: 2800000, guid: da9959d63731244b6b6d26721358b801, type: 3}
