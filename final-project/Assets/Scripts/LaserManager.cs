@@ -10,6 +10,7 @@ public class LaserManager : MonoBehaviour {
     public GameObject LinePrefab;
     public GameObject NormalPrefab;
     public TextMeshPro TextPrefab;
+    public float wavelength = 1.0f;
 
     private bool targetHit = false;
 
@@ -139,11 +140,11 @@ public class LaserManager : MonoBehaviour {
 
                 if(CheckDirection(parentObstacleTransform.position, hitPosition, hit.normal)) {
                     incidentRI = 1.0f; // RI of vacuum
-                    refractedRI = obstacleRI; 
+                    refractedRI = obstacleRI * wavelength;
                 }
 
                 else {
-                    incidentRI = obstacleRI; 
+                    incidentRI = obstacleRI * wavelength;
                     refractedRI = 1.0f; // RI of vacuum
                 }
 
