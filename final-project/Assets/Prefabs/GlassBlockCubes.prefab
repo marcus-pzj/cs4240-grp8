@@ -200,9 +200,10 @@ GameObject:
   m_Component:
   - component: {fileID: 256628316244408074}
   - component: {fileID: 256628316244408073}
+  - component: {fileID: 3672388021605073844}
   m_Layer: 0
   m_Name: GlassBlockCubes
-  m_TagString: Untagged
+  m_TagString: Glass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -215,7 +216,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 256628316244408075}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.59, y: 1.03, z: 0.21}
+  m_LocalPosition: {x: 6.59, y: 0, z: 0.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 256628316461067237}
@@ -241,6 +242,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RefractiveIndex: 1.5
   isMirror: 0
+--- !u!65 &3672388021605073844
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256628316244408075}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &256628316412151279
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,10 @@ TagManager:
   - LaserManager
   - Laser
   - UIElement
+  - Detector
+  - Glass
+  - Target
+  - Mirror
   layers:
   - Default
   - TransparentFX
