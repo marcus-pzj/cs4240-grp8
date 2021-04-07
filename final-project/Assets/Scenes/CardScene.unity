@@ -1007,7 +1007,8 @@ MonoBehaviour:
   glass1: {fileID: 1376250539987480902, guid: 50f17085ba8b04809b584f9e62974c55, type: 3}
   glass2: {fileID: 7917930340493024485, guid: fe67a818529954bffa281bc2adae6c65, type: 3}
   mirror: {fileID: 7781240957536640869, guid: aab736babafb1496dba1b8cd619f8e50, type: 3}
-  target: {fileID: 6835715955313740642, guid: 7d5aa7e48edb9471e8edc97191b12cd5, type: 3}
+  target: {fileID: 7097864130831980285, guid: 647682d7b1a304fe592d2aadfa6fe5a9, type: 3}
+  wood: {fileID: 7883138307668511768, guid: 75f9acff0496e4568ada3effe963da4f, type: 3}
 --- !u!1 &1023327396
 GameObject:
   m_ObjectHideFlags: 0
