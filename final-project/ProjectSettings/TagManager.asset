@@ -11,6 +11,7 @@ TagManager:
   - Glass
   - Target
   - Mirror
+  - Wood
   layers:
   - Default
   - TransparentFX
