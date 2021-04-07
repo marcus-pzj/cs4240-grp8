@@ -609,7 +609,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7619907880640870369, guid: 42a461a7d98efb343b123f81c31c09c4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -33.553955
+      value: -33.55371
       objectReference: {fileID: 0}
     - target: {fileID: 7619907880640870369, guid: 42a461a7d98efb343b123f81c31c09c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1004,7 +1004,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserPointer: {fileID: 7991028756513117691, guid: 261d58a6e8dae4e00b8d7107e7e8f041, type: 3}
-  glass: {fileID: 1376250539987480902, guid: 50f17085ba8b04809b584f9e62974c55, type: 3}
+  glass1: {fileID: 1376250539987480902, guid: 50f17085ba8b04809b584f9e62974c55, type: 3}
+  glass2: {fileID: 7917930340493024485, guid: fe67a818529954bffa281bc2adae6c65, type: 3}
   mirror: {fileID: 7781240957536640869, guid: aab736babafb1496dba1b8cd619f8e50, type: 3}
   target: {fileID: 6835715955313740642, guid: 7d5aa7e48edb9471e8edc97191b12cd5, type: 3}
 --- !u!1 &1023327396
@@ -2097,7 +2098,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 31.000732, y: 0}
+  m_AnchoredPosition: {x: 31.000488, y: 0}
   m_SizeDelta: {x: 65, y: 4}
   m_Pivot: {x: 0.49999994, y: 0.5}
 --- !u!114 &2108544850

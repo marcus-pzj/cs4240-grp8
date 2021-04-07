@@ -19,28 +19,28 @@ MonoBehaviour:
       m_GuidLow: 5586713416714948995
       m_GuidHigh: 3764179473221009326
     m_SerializedTextureGuid:
-      m_GuidLow: 1462151137483965349
-      m_GuidHigh: 4955023065098580090
+      m_GuidLow: 353937806597041661
+      m_GuidHigh: 1463530640083763096
     m_Size: {x: 0.06, y: 0.06}
     m_SpecifySize: 1
     m_Name: laser_pointer
-    m_Texture: {fileID: 2800000, guid: 75aa43a59ab6144a7a70119139c7c344, type: 3}
+    m_Texture: {fileID: 0}
   - m_SerializedGuid:
       m_GuidLow: 5082340039797032452
       m_GuidHigh: 12093622482487022474
     m_SerializedTextureGuid:
-      m_GuidLow: 2606333522362977307
-      m_GuidHigh: 8993185975623998666
+      m_GuidLow: 14143876104307371301
+      m_GuidHigh: 6979749751243273418
     m_Size: {x: 0.06, y: 0.06}
     m_SpecifySize: 1
-    m_Name: glass
+    m_Name: glass1
     m_Texture: {fileID: 0}
   - m_SerializedGuid:
       m_GuidLow: 4736282367747624705
       m_GuidHigh: 7945079026043486606
     m_SerializedTextureGuid:
-      m_GuidLow: 16489939905542983803
-      m_GuidHigh: 12197651733150396731
+      m_GuidLow: 6113699681515235624
+      m_GuidHigh: 3127805823342239435
     m_Size: {x: 0.06, y: 0.06}
     m_SpecifySize: 1
     m_Name: mirror
@@ -49,9 +49,29 @@ MonoBehaviour:
       m_GuidLow: 5158863437105640424
       m_GuidHigh: 17313828601897526157
     m_SerializedTextureGuid:
-      m_GuidLow: 2615244695879113174
-      m_GuidHigh: 123945830295432555
+      m_GuidLow: 3777513746640964524
+      m_GuidHigh: 8657414793884859816
     m_Size: {x: 0.06, y: 0.06}
     m_SpecifySize: 1
     m_Name: target
-    m_Texture: {fileID: 2800000, guid: da9959d63731244b6b6d26721358b801, type: 3}
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4865547533776295106
+      m_GuidHigh: 16534706241702316975
+    m_SerializedTextureGuid:
+      m_GuidLow: 11880721589032163750
+      m_GuidHigh: 967110846596592714
+    m_Size: {x: 0.06, y: 0.06}
+    m_SpecifySize: 1
+    m_Name: wood
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5434091951920100813
+      m_GuidHigh: 12125691048447040668
+    m_SerializedTextureGuid:
+      m_GuidLow: 6073989110959593018
+      m_GuidHigh: 7381526538359124824
+    m_Size: {x: 0.06, y: 0.06}
+    m_SpecifySize: 1
+    m_Name: glass2
+    m_Texture: {fileID: 0}
