@@ -15,9 +15,10 @@ public class Obstacle : MonoBehaviour
     void Start()
     {
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
+ 
+	public void changeRefractiveIndex(float rindex)
+	{
+		RefractiveIndex = (float)System.Math.Round(rindex, 2);
+		Debug.Log(RefractiveIndex);
+	}
 }
