@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ToggleManager : MonoBehaviour
+public class RefractionToggleManager : MonoBehaviour
 {
 	private GameObject[] lasers;
 	public Toggle toggle1;

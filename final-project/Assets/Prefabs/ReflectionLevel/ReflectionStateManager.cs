@@ -66,7 +66,12 @@ public class ReflectionStateManager : MonoBehaviour
         }
     }
 
-    public bool isObjectiveMet()
+	public bool AreObjectsDetected()
+	{
+		return isTargetDetected && isMirrorDetected;
+	}
+
+	public bool isObjectiveMet()
     {
         return isTargetDetected && isTargetHit && isMirrorDetected;
     }

@@ -73,7 +73,12 @@ public class TIRStateManager : MonoBehaviour
         }
     }
 
-    public bool isObjectiveMet()
+	public bool AreObjectsDetected()
+	{
+		return isTargetDetected && isGlassDetected;
+	}
+
+	public bool isObjectiveMet()
     {
         return isTargetDetected && isTargetHit && isGlassDetected;
     }
