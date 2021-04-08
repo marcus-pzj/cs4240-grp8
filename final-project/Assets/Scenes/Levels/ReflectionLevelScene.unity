@@ -1223,6 +1223,8 @@ MonoBehaviour:
   toggle1: {fileID: 1311282906}
   toggle2: {fileID: 1891294028}
   toggle3: {fileID: 1669379855}
+  audioSource: {fileID: 1888094548}
+  clip: {fileID: 8300000, guid: d21910bb3e5472246897da494375d539, type: 3}
 --- !u!1 &1047208978
 GameObject:
   m_ObjectHideFlags: 0

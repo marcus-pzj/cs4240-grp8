@@ -177,6 +177,8 @@ MonoBehaviour:
   toggle1: {fileID: 1894848291}
   toggle2: {fileID: 1315134133}
   toggle3: {fileID: 1566127862}
+  audioSource: {fileID: 523129125}
+  clip: {fileID: 8300000, guid: d21910bb3e5472246897da494375d539, type: 3}
 --- !u!224 &154507476
 RectTransform:
   m_ObjectHideFlags: 0
