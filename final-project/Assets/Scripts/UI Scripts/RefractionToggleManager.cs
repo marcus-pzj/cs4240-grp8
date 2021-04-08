@@ -9,15 +9,19 @@ public class RefractionToggleManager : MonoBehaviour
 	public Toggle toggle1;
 	public Toggle toggle2;
 	public Toggle toggle3;
+	public AudioSource audioSource;
+	public AudioClip clip;
 	private GameObject popup1;
 	private GameObject popup2;
 	private GameObject popup3;
+	private bool soundPlayed;
 
 	void Start()
 	{
 		popup1 = toggle1.transform.GetChild(1).gameObject;
 		popup2 = toggle2.transform.GetChild(1).gameObject;
 		popup3 = toggle3.transform.GetChild(1).gameObject;
+		soundPlayed = false;
 	}
 
 	void Update()
@@ -43,6 +47,11 @@ public class RefractionToggleManager : MonoBehaviour
 			{
 				toggle2.interactable = false;
 				toggle3.interactable = true;
+				if (!soundPlayed && lasers[0].GetComponent<RefractionLevelStateManager>().IsObjectiveMet())
+				{
+					audioSource.PlayOneShot(clip, 0.7f);
+					soundPlayed = true;
+				}
 			}
 		}
 
