@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ReflectionStateManager : MonoBehaviour
@@ -59,7 +57,7 @@ public class ReflectionStateManager : MonoBehaviour
         if (target && laserManager)
         {
             Material cubeMaterial = target.GetComponent<MeshRenderer>().material;
-            cubeMaterial.SetColor("_Color", Color.white);
+            cubeMaterial.SetColor("_Color", Color.green);
             if (laserManager.GetComponent<LaserManager>().IsTargetHit())
             {
                 cubeMaterial.SetColor("_Color", Color.red);

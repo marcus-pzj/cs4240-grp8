@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/ReflectionLevelScene.unity
     guid: 126dd86b4c0c74a4fa8dd4b60e6ddb4d
   - enabled: 1
+    path: Assets/Scenes/Levels/RefractionLevelScene.unity
+    guid: 65661b3273df944fd9c26c751bb32227
+  - enabled: 1
     path: Assets/Scenes/Levels/TotalInternalReflectionLevelScene.unity
     guid: 4fbe035af25ca434e961827de3d51144
   m_configObjects:
