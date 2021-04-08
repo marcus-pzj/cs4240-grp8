@@ -124,12 +124,12 @@ GameObject:
   - component: {fileID: 569466164}
   - component: {fileID: 569466163}
   m_Layer: 5
-  m_Name: Canvas
-  m_TagString: Untagged
+  m_Name: Glass Block Slider
+  m_TagString: Glass Block Slider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &569466162
 RectTransform:
   m_ObjectHideFlags: 0
@@ -394,8 +394,8 @@ RectTransform:
   m_Father: {fileID: 475605538}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.35714284, y: 0}
+  m_AnchorMax: {x: 0.35714284, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -618,7 +618,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.35714284, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -672,9 +672,9 @@ GameObject:
   - component: {fileID: 7917930340341981868}
   - component: {fileID: 7917930340341981869}
   - component: {fileID: 7917930340341981870}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Back-Out
-  m_TagString: Untagged
+  m_TagString: Glass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -768,9 +768,9 @@ GameObject:
   - component: {fileID: 7917930340357566572}
   - component: {fileID: 7917930340357566573}
   - component: {fileID: 7917930340357566574}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Right-In
-  m_TagString: Untagged
+  m_TagString: Glass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -937,9 +937,9 @@ GameObject:
   - component: {fileID: 7917930340813147768}
   - component: {fileID: 7917930340813147769}
   - component: {fileID: 7917930340813147770}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bottom-Down
-  m_TagString: Untagged
+  m_TagString: Glass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1033,9 +1033,9 @@ GameObject:
   - component: {fileID: 7917930340836811625}
   - component: {fileID: 7917930340836811626}
   - component: {fileID: 7917930340836811627}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Front-In
-  m_TagString: Untagged
+  m_TagString: Glass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1129,9 +1129,9 @@ GameObject:
   - component: {fileID: 7917930340885587310}
   - component: {fileID: 7917930340885587311}
   - component: {fileID: 7917930340885587304}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Left-In
-  m_TagString: Untagged
+  m_TagString: Glass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1225,9 +1225,9 @@ GameObject:
   - component: {fileID: 7917930341030636155}
   - component: {fileID: 7917930341030636132}
   - component: {fileID: 7917930341030636133}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Front-Out
-  m_TagString: Untagged
+  m_TagString: Glass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1321,9 +1321,9 @@ GameObject:
   - component: {fileID: 7917930341071012583}
   - component: {fileID: 7917930341071012576}
   - component: {fileID: 7917930341071012577}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Top-Out
-  m_TagString: Untagged
+  m_TagString: Glass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1417,9 +1417,9 @@ GameObject:
   - component: {fileID: 7917930341383826499}
   - component: {fileID: 7917930341383826508}
   - component: {fileID: 7917930341383826509}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Right-Out
-  m_TagString: Untagged
+  m_TagString: Glass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1513,9 +1513,9 @@ GameObject:
   - component: {fileID: 7917930341723185864}
   - component: {fileID: 7917930341723185865}
   - component: {fileID: 7917930341723185866}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Back-In
-  m_TagString: Untagged
+  m_TagString: Glass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1609,9 +1609,9 @@ GameObject:
   - component: {fileID: 7917930341905263176}
   - component: {fileID: 7917930341905263177}
   - component: {fileID: 7917930341905263178}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Left-Out
-  m_TagString: Untagged
+  m_TagString: Glass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1705,9 +1705,9 @@ GameObject:
   - component: {fileID: 7917930341980089762}
   - component: {fileID: 7917930341980089763}
   - component: {fileID: 7917930341980089772}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Top-In
-  m_TagString: Untagged
+  m_TagString: Glass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1801,9 +1801,9 @@ GameObject:
   - component: {fileID: 7917930342153757259}
   - component: {fileID: 7917930342153757108}
   - component: {fileID: 7917930342153757109}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bottom-Up
-  m_TagString: Untagged
+  m_TagString: Glass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

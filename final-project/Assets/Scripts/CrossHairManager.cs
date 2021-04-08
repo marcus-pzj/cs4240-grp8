@@ -8,10 +8,14 @@ public class CrossHairManager : MonoBehaviour
     [SerializeField]
     private Camera playerCamera;
 
+    [SerializeField]
+    private LayerMask glassLayer;
+
     // Update is called once per frame
     void Update()
     {
         RaycastHit hit;
+        GameObject slider;
         if (
             Physics
                 .Raycast(playerCamera
@@ -19,15 +23,29 @@ public class CrossHairManager : MonoBehaviour
                         Screen.height / 2,
                         0)),
                 out hit,
-                100)
+                100,
+                glassLayer)
         )
         {
             Transform transformHit = hit.transform;
             string tag = transformHit.tag;
-
-            if (tag == "Glass")
+            string name = transformHit.name;
+            Debug.Log("HIT HIT HIT " + tag + " " + name);
+            slider = transformHit.parent.Find("Glass Block Slider").gameObject;
+            if (slider)
             {
-                Debug.Log("hit hit hit");
+                slider.SetActive(true);
+            }
+        }
+        else
+        {
+            foreach (GameObject
+                obj
+                in
+                GameObject.FindGameObjectsWithTag("Glass Block Slider")
+            )
+            {
+                obj.SetActive(false);
             }
         }
     }
