@@ -271,7 +271,15 @@ public class LaserManager : MonoBehaviour
     // creates a TMP object as a child of ray at position
     void DrawAngle(GameObject parentRay, Vector3 position, float angle)
     {
-        GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
+        GameObject[] cameras = GameObject.FindGameObjectsWithTag("MainCamera"); // we have 2 AR cameras (Freeplay, Levels)
+        GameObject camera = cameras[0];
+        foreach (GameObject cam in cameras)
+        {
+            if ((Math.Abs(cam.transform.rotation.x) + Math.Abs(cam.transform.rotation.y) + Math.Abs(cam.transform.rotation.z))  > 0) // the inactive AR camera will have Rotation(0.0, 0.0, 0.0, 1.0), if both are the same, doesnt matter which we use.
+            {
+                camera = cam;
+            }
+        }
         position = position + new Vector3(0.5f, 0, 0);
         TextMeshPro ang =
             Instantiate(TextPrefab, position, camera.transform.rotation);
