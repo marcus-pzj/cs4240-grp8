@@ -9,11 +9,14 @@ public class ReflectionToggleManager : MonoBehaviour
 	public Toggle toggle1;
 	public Toggle toggle2;
 	public Toggle toggle3;
+	public Toggle toggle4;
 	public AudioSource audioSource;
 	public AudioClip clip;
 	private GameObject popup1;
 	private GameObject popup2;
 	private GameObject popup3;
+	private GameObject popup4;
+	private ReflectionStateManager stateManager;
 	private bool soundPlayed;
 
 	void Start()
@@ -21,6 +24,7 @@ public class ReflectionToggleManager : MonoBehaviour
 		popup1 = toggle1.transform.GetChild(1).gameObject;
 		popup2 = toggle2.transform.GetChild(1).gameObject;
 		popup3 = toggle3.transform.GetChild(1).gameObject;
+		popup4 = toggle4.transform.GetChild(1).gameObject;
 		soundPlayed = false;
 	}
 
@@ -33,24 +37,38 @@ public class ReflectionToggleManager : MonoBehaviour
 			toggle1.interactable = true;
 			toggle2.interactable = false;
 			toggle3.interactable = false;
+			toggle4.interactable = false;
 		}
 		else
 		{
 			toggle1.interactable = false;
 
-			if (!lasers[0].GetComponent<ReflectionStateManager>().AreObjectsDetected())
+			stateManager = lasers[0].GetComponent<ReflectionStateManager>();
+
+			if (!stateManager.AreObjectsDetected())
 			{
 				toggle2.interactable = true;
 				toggle3.interactable = false;
+				toggle4.interactable = false;
 			}
 			else
 			{
 				toggle2.interactable = false;
-				toggle3.interactable = true;
-				if (!soundPlayed && lasers[0].GetComponent<ReflectionStateManager>().isObjectiveMet())
+				if (!stateManager.isObjectiveMet())
 				{
-					audioSource.PlayOneShot(clip, 0.7f);
-					soundPlayed = true;
+					toggle3.interactable = true;
+					toggle4.interactable = false;
+				}
+				else
+				{
+					toggle3.interactable = false;
+					toggle4.interactable = true;
+
+					if (!soundPlayed)
+					{
+						audioSource.PlayOneShot(clip, 0.7f);
+						soundPlayed = true;
+					}
 				}
 			}
 		}
@@ -62,5 +80,7 @@ public class ReflectionToggleManager : MonoBehaviour
 		else popup2.SetActive(false);
 		if (toggle3.interactable && toggle3.isOn) popup3.SetActive(true);
 		else popup3.SetActive(false);
+		if (toggle4.interactable && toggle4.isOn) popup4.SetActive(true);
+		else popup4.SetActive(false);
 	}
 }

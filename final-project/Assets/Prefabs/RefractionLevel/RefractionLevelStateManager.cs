@@ -79,7 +79,7 @@ public class RefractionLevelStateManager : MonoBehaviour
 		return isTargetDetected && isGlassDetected;
 	}
 
-    public bool IsObjectiveMet()
+    public bool isObjectiveMet()
     {
         return isTargetDetected && isTargetHit && isGlassDetected;
     }
