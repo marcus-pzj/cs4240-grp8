@@ -57,16 +57,21 @@ public class ReflectionStateManager : MonoBehaviour
         if (target && laserManager)
         {
             Material cubeMaterial = target.GetComponent<MeshRenderer>().material;
-            cubeMaterial.SetColor("_Color", Color.green);
+            cubeMaterial.SetColor("_Color", Color.red);
             if (laserManager.GetComponent<LaserManager>().IsTargetHit())
             {
-                cubeMaterial.SetColor("_Color", Color.red);
+                cubeMaterial.SetColor("_Color", Color.green);
                 isTargetHit = true;
             }
         }
     }
 
-    public bool isObjectiveMet()
+	public bool AreObjectsDetected()
+	{
+		return isTargetDetected && isMirrorDetected;
+	}
+
+	public bool isObjectiveMet()
     {
         return isTargetDetected && isTargetHit && isMirrorDetected;
     }

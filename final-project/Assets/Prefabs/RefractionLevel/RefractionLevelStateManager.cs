@@ -64,17 +64,22 @@ public class RefractionLevelStateManager : MonoBehaviour
         if (target && laserManager)
         {
             Material cubeMaterial = target.GetComponent<MeshRenderer>().material;
-            cubeMaterial.SetColor("_Color", Color.green);
-            Debug.Log(laserManager.GetComponent<LaserManager>().IsTargetHit());
+            cubeMaterial.SetColor("_Color", Color.red);
+            //Debug.Log(laserManager.GetComponent<LaserManager>().IsTargetHit());
             if (laserManager.GetComponent<LaserManager>().IsTargetHit())
             {
-                cubeMaterial.SetColor("_Color", Color.red);
+                cubeMaterial.SetColor("_Color", Color.green);
                 isTargetHit = true;
             }
         }
     }
 
-    public bool IsObjectiveMet()
+	public bool AreObjectsDetected()
+	{
+		return isTargetDetected && isGlassDetected;
+	}
+
+    public bool isObjectiveMet()
     {
         return isTargetDetected && isTargetHit && isGlassDetected;
     }

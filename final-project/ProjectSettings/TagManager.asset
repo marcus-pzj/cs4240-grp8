@@ -12,6 +12,7 @@ TagManager:
   - Target
   - Mirror
   - Wood
+  - LightSource
   layers:
   - Default
   - TransparentFX
