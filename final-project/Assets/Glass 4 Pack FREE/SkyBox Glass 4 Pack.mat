@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: SkyBox Glass 4 Pack
   m_Shader: {fileID: 106, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _SUNDISK_HIGH_QUALITY
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _SUNDISK_HIGH_QUALITY
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -82,3 +82,4 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GroundColor: {r: 0.10196078, g: 0.9249338, b: 0.93333334, a: 1}
     - _SkyTint: {r: 1, g: 0.85854053, b: 0, a: 1}
+  m_BuildTextureStacks: []
