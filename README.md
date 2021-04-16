@@ -26,3 +26,9 @@ Mathematical equations implemented in code for realistic light-physics simulatio
 Use of Image Tracking for experiment setup
 
 
+## Contributors
+Giam Ju Xian
+Ler Wei Sheng
+Marcus Phua Zheng Jie
+Shanon Seet Shwen Ling
+Thaddeus Lim Zhi Yu
