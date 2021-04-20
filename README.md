@@ -7,7 +7,7 @@
 ### Instructions
 
 1. Download SPAR to your mobile device, following [Instructions for Android](#android) or [Instructions for iOS](#ios).
-2. Print out the cards required in either full colour or greyscale from [here](printable_cards.pdf).
+2. Print out the cards required in either full colour or greyscale from [here](printable-cards.pdf).
 3. Start your SPAR experience by exploring the Play mode. Enable camera access and find a flat surface to use as your game area.
 4. Have fun while carrying out your physics experiments!
 
